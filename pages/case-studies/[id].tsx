@@ -1,17 +1,16 @@
 import type { NextPage } from 'next'
 
 
-const Home: NextPage = () => {
+const CaseStudyPage: NextPage = () => {
   return (
     <div>
-  
 
       <main>
-     welcome to my portfolio
+     this is a Case Study page
       </main>
 
     </div>
   )
 }
 
-export default Home
+export default CaseStudyPage
