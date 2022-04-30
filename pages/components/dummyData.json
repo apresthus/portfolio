@@ -1,0 +1,115 @@
+[
+  
+
+ {    
+        "title" : "Ember CMS",
+        "subtitle" : "developer oriented headless CMSs",
+        "primaryColor": "#FFD319",
+        "secondaryColor": "#FF008A",
+        "imageurl": "/ember.png",
+        "hypeText" : [
+        [
+        {
+            "text" : "Developer focused",
+            "type" : "highlight"
+        },
+
+        {
+            "text" : " headless CMS",
+            "type" : "text"
+        }],
+        [
+            {
+                "text" : "Publish",
+                "type" : "text"
+            },
+            {
+                "text" : " once",
+                "type" : "highlight"
+            },
+            {
+                "text" : ", consume",
+                "type" : "text"
+            },
+            {
+                "text" : " everywhere",
+                "type" : "highlight"
+            }
+        ],
+        [
+            {
+                "text" : "Headless",
+                "type" : "highlight"
+            },
+            {
+                "text" : " / front-end",
+                "type" : "text"
+            },
+            {
+                "text" : " agnostic",
+                "type" : "highlight"
+            }
+        ]
+    ]
+    },
+  {   
+        "title" : "Your Special Sound",
+        "subtitle" : "personalized wall art based on sound with custom design tools",
+        "primaryColor": "#5F00BA",
+        "secondaryColor": "#FF008A",
+        "imageurl": "/yss2.png",
+        "hypeText" : [
+            [
+            {
+                "text" : "User Created",
+                "type" : "highlight"
+            },
+            {
+                "text" : " Sound Art",
+                "type" : "text"
+            }
+            ],
+            [
+                {
+                    "text" : "Full Shopify",
+                    "type" : "text"
+                },
+                {
+                    "text" : " Integration",
+                    "type" : "highlight"
+                }
+            ]
+        ]
+    
+},
+    {   
+        "title" : "YSS Fulfillment Portal",
+        "subtitle" : "automated generation of Prints from Shopify Orders",
+        "primaryColor": "#0EA44A",
+        "secondaryColor": "#07B9E8",
+        "imageurl": "/backend.png",
+        "hypeText" : [[
+            {
+                "text" : "Your Special Sound",
+                "type" : "highlight"
+            },
+            {
+                "text" : " Backend",
+                "type" : "text"
+            }
+        ],
+        [
+                {
+                    "text" : "Automated",
+                    "type" : "text"
+                },
+                {
+                    "text" : " Integration",
+                    "type" : "highlight"
+                }
+        ]
+        ]
+    }
+        
+
+]
