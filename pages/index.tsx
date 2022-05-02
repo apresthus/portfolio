@@ -1,4 +1,5 @@
 import { Card } from './components/card'
+import {Hello} from './components/hello'
 import styles from '../styles/Home.module.scss'
 import dummyData from './components/dummyData.json'
 import { useRouter } from 'next/router'
@@ -37,6 +38,9 @@ const Home : NextPage = () => {
   
 
       <main className={styles.mainContainer}>
+
+      <Hello/>
+
   {dummyData.map((item, index) => {
 
  const currentSlug = item.title.toString().replace(/\s+/g, '-').toLowerCase();

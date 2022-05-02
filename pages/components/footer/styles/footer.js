@@ -10,3 +10,8 @@ align-items: center;
 width:100%;
 min-height:300px;
 `;
+
+export const FooterText = styled.p`
+font-size:1.2em;
+color:white;
+text-align:center;`; 
