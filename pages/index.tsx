@@ -47,7 +47,7 @@ const Home : NextPage = () => {
 
     return( 
      <>
-     <div style={{textAlign:"center", marginTop:"2em"}}>
+     <div id={"case-studies"} style={{textAlign:"center", marginTop:"2em"}}>
     {item.hypeText.map((sentence, idx) => {
       return(
         <IntroTextStyle key={idx}>
@@ -62,7 +62,7 @@ const Home : NextPage = () => {
       )
     })}
      </div>
-    <Card primaryColor={item.primaryColor} secondaryColor={item.secondaryColor} src={item.imageurl} alt={""} classes={"card"} key={index}>
+    <Card onClick={() => () => router.push("/case-studies/"+currentSlug)} primaryColor={item.primaryColor} secondaryColor={item.secondaryColor} src={item.imageurl} alt={""} classes={"card"} key={index}>
     <Card.Title classes={"card__title"}>{item.title}</Card.Title>
     <Card.Button onClick={() => router.push("/case-studies/"+currentSlug)} classes={"card__title"}>{"View Case Study"}</Card.Button>
     </Card>

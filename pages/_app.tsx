@@ -5,9 +5,18 @@ import {Footer} from './components/footer'
 import { NavbarItem, NavbarLink } from './components/navbar/styles/navbar'
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+  const toggleTheme = () => {
+
+  }
+
   return( 
     <>
-  <Navbar><NavbarLink>{"case studies"}{"about"}{"contact"}</NavbarLink></Navbar>
+  <Navbar><NavbarLink href={"/#case-studies"}>case studies</NavbarLink>
+  <NavbarLink href={"/#about"}>about</NavbarLink>
+  <NavbarLink href={"#contact"}>contact</NavbarLink>
+  <button style={{marginLeft:"1em"}} onClick={() => toggleTheme()}>cycle</button>
+  </Navbar>
   <Component {...pageProps} />
   <Footer />
   </>

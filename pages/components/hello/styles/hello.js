@@ -28,6 +28,24 @@ justify-content: center;
 align-items: center;
 `;
 
+export const InfoContainer = styled.div`
+position: relative;
+display: flex;
+flex-direction: column;
+gap:2em;
+justify-content: center;
+align-items: center;
+`;
+
+export const SocialsContainer = styled.div`
+position: relative;
+display: flex;
+flex-direction: row;
+gap:2em;
+justify-content: center;
+align-items: center;
+`;
+
 export const WorkText = styled.p`
 font-family: 'Caveat';
 font-style: normal;
