@@ -5,9 +5,16 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+width:100% ;
 height:100vh ;
-padding:0;
+padding-left:1em;
+padding-right:1em;
 margin:0;
+
+@media (max-width: 758px) {
+    height:auto;
+    gap:1.5em ;
+  }
 `;
 
 export const AboutContainer = styled.div`
@@ -16,6 +23,12 @@ flex-direction: row;
 gap:2em;
 justify-content: center;
 align-items: center;
+@media (max-width: 758px) {
+    flex-direction: column;
+  }
+`;
+
+export const Arrow = styled.svg`
 `;
 
 
@@ -26,6 +39,7 @@ flex-direction: row;
 gap:2em;
 justify-content: center;
 align-items: center;
+
 `;
 
 export const InfoContainer = styled.div`
@@ -60,6 +74,10 @@ background: linear-gradient(90.57deg, #F96615 30.18%, #F0548C 94.34%);
 -webkit-text-fill-color: transparent;
 background-clip: text;
 text-fill-color: transparent;
+
+@media (max-width: 758px) {
+    position: relative;
+  }
 `;
 
 export const HelloText = styled.h2`

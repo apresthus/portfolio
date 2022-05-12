@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Title = styled.h2``;
 
 export const Container = styled.div`
-width:100%;
-max-width:700px;
+
+width:700px;
 min-height:400px ;
 margin-top:1em;
 display: flex;

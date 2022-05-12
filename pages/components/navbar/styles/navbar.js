@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const LogoContainer = styled.div`
 padding:1em ;
+cursor:pointer;
 `;
 
 export const NavbarContainer = styled.nav`
