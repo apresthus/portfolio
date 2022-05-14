@@ -12,6 +12,8 @@ box-shadow: 0px 4px 24px 6px rgba(0, 0, 0, 0.1);
 width: 85%;
 max-width: 700px;`;
 
+export const SuccessText = styled.p`color:green; text-align:center;`;
+
 export const Label = styled.label`
 color:black;
 font-size:0.9rem;

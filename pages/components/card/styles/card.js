@@ -4,7 +4,8 @@ export const Title = styled.h2``;
 
 export const Container = styled.div`
 
-width:700px;
+width:100%;
+max-width: 45rem ;
 min-height:400px ;
 margin-top:1em;
 display: flex;
@@ -12,7 +13,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 color:white;
-font-size:2em ;
+font-size:1.5em ;
 background-image: 
 linear-gradient(110.86deg, ${props => props.primaryColor+'7F'}, ${props => props.secondaryColor+'7F'}), url(${props => props.src});
 background-size: cover;

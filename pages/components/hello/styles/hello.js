@@ -21,6 +21,7 @@ export const AboutContainer = styled.div`
 display: flex;
 flex-direction: row;
 gap:2em;
+margin-top:2em;
 justify-content: center;
 align-items: center;
 @media (max-width: 758px) {
