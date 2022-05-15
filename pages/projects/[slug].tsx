@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import {CaseStudyHeader} from '../components/case-study-header'
-import {CaseStudyBreadcrumb} from '../components/case-study-breadcrumb'
+import {ProjectHeader} from '../components/project-header'
+import {ProjectBreadcrumb} from '../components/project-breadcrumb'
 import {EmberCMSPage} from '../../types'
 import Image from 'next/image'
 
-interface CaseStudyProps {
+interface ProjectProps {
   page:EmberCMSPage,
   pageTemplate:EmberCMSPage,
    notFound:Boolean
@@ -40,9 +40,9 @@ console.log(params)
      fallback: true
    }
  }
-const CaseStudyPage: NextPage<CaseStudyProps> = ({page}) => {
+const ProjectPage: NextPage<ProjectProps> = ({page}) => {
 
-  interface CaseStudyProps {
+  interface ProjectProps {
     id: string,
     children: any
   }
@@ -122,10 +122,10 @@ const CaseStudyPage: NextPage<CaseStudyProps> = ({page}) => {
   console.log(page)
   return (
     <>
-      <CaseStudyHeader primaryColor={"#FF3C11A6"} secondaryColor={"#FF005CA6"} src={"/ember.png"}>
+      <ProjectHeader primaryColor={"#FF3C11A6"} secondaryColor={"#FF005CA6"} src={"/ember.png"}>
         <h1 style={{margin:"0"}}>Ember CMS</h1>
         <p  style={{margin:"0"}}>developer oriented headless CMS</p>
-      </CaseStudyHeader>
+      </ProjectHeader>
       <div  style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }}>
       {page?.content?.map((item,index) =>{
 switch (item.type) {
@@ -152,9 +152,9 @@ return <Element key={index} element={item}>{children}</Element>
 })}
 
        </div>
-       <CaseStudyBreadcrumb next={"Your Special Sound"} previous={"Your Special Sound"} />
+       <ProjectBreadcrumb next={"Your Special Sound"} previous={"Your Special Sound"} />
        </>
   )
 }
 
-export default CaseStudyPage
+export default ProjectPage

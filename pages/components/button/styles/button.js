@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ButtonBase = styled.button`
    background: linear-gradient(92.27deg, #FF3C11 0%, #FF005C 62.62%);
-    box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-elevation-low);
     border: none;
     color: white;
     padding: 1em 1.25em;

@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return( 
     <>
-  <Navbar><NavbarLink href={"/#case-studies"}>case studies</NavbarLink>
+  <Navbar><NavbarLink href={"/#projects"}>projects</NavbarLink>
   <NavbarLink href={"/#about"}>about</NavbarLink>
   <NavbarLink href={"#contact"}>contact</NavbarLink>
   <button style={{marginLeft:"1em"}} onClick={() => toggleTheme()}>cycle</button>

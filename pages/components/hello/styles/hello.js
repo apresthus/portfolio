@@ -48,6 +48,7 @@ position: relative;
 display: flex;
 flex-direction: column;
 gap:2em;
+line-height: 1.7;
 justify-content: center;
 align-items: center;
 `;

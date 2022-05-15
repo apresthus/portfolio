@@ -1,5 +1,6 @@
 import { Card } from './components/card'
 import {Hello} from './components/hello'
+import {Divider} from './components/divider'
 import styles from '../styles/Home.module.scss'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
@@ -86,7 +87,7 @@ const emberData = JSON.parse(page.content[0].data);
 
     return( 
     <React.Fragment key={uuidv4()}>
-     <div key={uuidv4()}  style={{textAlign:"center", marginTop:"2em"}}>
+     <div id="projects" key={uuidv4()}  style={{textAlign:"center", marginTop:"2em"}}>
     {item.hypeText.map((sentence: any, idx:number) => {
       return(
         <IntroTextStyle key={uuidv4()}>
@@ -101,10 +102,11 @@ const emberData = JSON.parse(page.content[0].data);
       )
     })}
      </div>
-    <Card onClick={() => () => router.push("/case-studies/"+currentSlug)} primaryColor={item.primaryColor} secondaryColor={item.secondaryColor} src={item.imageurl} alt={""} classes={"card"} key={uuidv4()}>
+    <Card onClick={() => () => router.push("/projects/"+currentSlug)} primaryColor={item.primaryColor} secondaryColor={item.secondaryColor} src={item.imageurl} alt={""} classes={"card"} key={uuidv4()}>
     <Card.Title classes={"card__title"}>{item.title}</Card.Title>
-    <Card.Button onClick={() => router.push("/case-studies/"+currentSlug)} classes={"card__title"}>{"View Case Study"}</Card.Button>
+    <Card.Button onClick={() => router.push("/projects/"+currentSlug)} classes={"card__title"}>{"View Project" }</Card.Button>
     </Card>
+    <Divider color={"#000505"} height={undefined}/>
   </React.Fragment>
     )
   })}
