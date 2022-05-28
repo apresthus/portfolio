@@ -44,7 +44,6 @@ img, picture, video, canvas, svg {
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 p {
   max-width: 75ch;

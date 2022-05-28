@@ -2,7 +2,7 @@ export default function handler(req, res) {
 
     "use strict";
     const nodemailer = require("nodemailer");
-    
+    console.log(req)
     // async..await is not allowed in global scope, must use a wrapper
     async function main() {
       // Generate test SMTP service account from ethereal.email
@@ -35,6 +35,6 @@ export default function handler(req, res) {
 
     }
     
-    main().catch((err) => {res.status(500).json({ message: err })});
+   // main().catch((err) => {res.status(500).json({ message: err })});
 
   }

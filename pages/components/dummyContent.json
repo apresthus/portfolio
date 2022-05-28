@@ -1,0 +1,27 @@
+{
+    "content":[
+
+       {
+           
+        "type": "rich-text",
+        "children": 
+        [{"children":{"text":"Project overview"},
+            "type": "heading-two"},
+
+            {"children":{"text":"I wanted a CMS for this portfolio for my upcoming blog section as well as for my future web projects. Instead of using an exisiting solid option like Sanity.io I opted to make my own from scratch to hone my skills and try a different type of project than "},
+            "type": "paragraph"},
+
+            {"children":{"text":"Your Special Sound.", "bold":true}, "type":"text"},
+            
+            {"children":{"text":"I wanted a CMS for this portfolio for my upcoming blog section as well as for my future web projects. Instead of using an exisiting solid option like Sanity.io I opted to make my own from scratch to hone my skills and try a different type of project than "},
+            "type": "paragraph"}
+
+
+
+        ]
+
+
+    
+    }
+    ]
+}

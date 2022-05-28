@@ -1,7 +1,7 @@
 import React from 'react'
 import {FC,PropsWithChildren, useState} from 'react'
 import { Container, TextArea, Input, Label, SuccessText } from './styles/contact-form'
-import Button from '../button/Button'
+import {Button} from '../button/Button'
 export default function ContactForm() {
 const [success, setSuccess] = useState(false)
 const handleSubmit = (e) => {
@@ -24,7 +24,7 @@ const SuccessScreen = () => {
 
   return (
     success ? <SuccessScreen /> :
-    <Container onSubmit={(e) => handleSubmit(e)} id={"contact"}>
+    <Container onSubmit={(e) => handleSubmit(e)} /*action="http://localhost:3000/api/contact" method="post"*/ id={"contact"}>
        <Label>Email:<Input type="email" required placeholder='email@domain.com'/></Label> 
         <Label>Message:<TextArea required placeholder='type your message here'/></Label>
         <Button type={"submit"} style={{width:"230px"}}>Send</Button>

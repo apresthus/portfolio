@@ -15,7 +15,6 @@ export const Divider = styled.hr`
    clear: both;
    border: none;
    border-top: 7px solid ${props => props.color? props.color : "#000"};
-   border-bottom: 7px solid #ffffff;
 `;
 
 export const VerticalDivider = styled.hr`

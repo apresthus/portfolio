@@ -1,6 +1,6 @@
 import {FC,PropsWithChildren} from 'react'
 import {Container,Title, Text} from './styles/card'
-import Button from '../button/Button'
+import {Button} from '../button/Button'
 import classNames from 'classnames'
 
 

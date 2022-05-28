@@ -1,3 +1,3 @@
-import ProjectHeader  from './ProjectHeader.js/index.js';
+import ProjectHeader  from './ProjectHeader.js';
 
 export { ProjectHeader };

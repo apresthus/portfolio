@@ -11,8 +11,9 @@ export const ButtonBase = styled.button`
     font-weight: bold;
     cursor: pointer;
 
-    &:hover {
+    &:hover, &:focus {
         background: linear-gradient(92.27deg, #74A3FF 0%, #1922FF 62.62%);
     }
+  
 
 `;

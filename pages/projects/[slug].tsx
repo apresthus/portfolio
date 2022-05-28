@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import {ProjectHeader} from '../components/project-header'
+import {ProjectHeader} from '../components/project-header/'
 import {ProjectBreadcrumb} from '../components/project-breadcrumb'
 import {EmberCMSPage} from '../../types'
 import Image from 'next/image'
