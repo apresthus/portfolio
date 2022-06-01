@@ -99,6 +99,8 @@ p {
 ::selection {
   color: #fff;
   background:#FF008A;
+  -webkit-text-fill-color: white;
+  text-fill-color:white;;
 }
 
 
