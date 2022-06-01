@@ -96,6 +96,10 @@ p {
   max-width: 75ch;
  
 }
+::selection {
+  color: #fff;
+  background:#FF008A;
+}
 
 
 @media (prefers-reduced-motion: reduce) {
