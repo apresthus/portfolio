@@ -10,6 +10,6 @@ export  function ProjectBreadcrumb({next,previous, ...restProps}) {
     </svg>
     const fallback = 'Back' ;
   return (
-    <Container {...restProps}><Previous>{leftArrow}{previous && fallback}</Previous>{next?<Next>{next}{rightArrow}</Next>:null}</Container>
+    <Container {...restProps}><Previous>{leftArrow}{previous? previous : fallback}</Previous>{next?<Next>{next}{rightArrow}</Next>:null}</Container>
   )
 }
