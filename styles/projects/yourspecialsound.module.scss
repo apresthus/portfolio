@@ -35,8 +35,8 @@ background-clip: text;
     min-height: max-content;
     max-width: 100%;
     justify-content: center;
-    grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 11;
 }
 .featurebox__featurestitle{
 font-family: 'Poppins';
@@ -67,13 +67,18 @@ letter-spacing: -0.01em;
     background: linear-gradient(91.24deg, #FF3C11 3.54%, #FF018A 99.72%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
-grid-column-start: 2;
-grid-column-end: 6;
-text-align: center;
+grid-column-start: 3;
+grid-column-end: 11;
 background-clip: text;
+
 font-size: 2.2rem;;
 }
 .project__p{
-    grid-column-start: 2;
-grid-column-end: 6;
+    grid-column-start: 3;
+grid-column-end: 11;
+}
+.project__content{
+    grid-column-start: 3;
+grid-column-end: 11; 
+width: 100%;
 }
