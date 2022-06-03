@@ -12,8 +12,8 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 color:white;
-margin: 1em 0em;
-font-size:1.5em ;
+margin: 1rem 0rem;
+font-size:1.5rem ;
 background-image: 
 linear-gradient(110.86deg, ${props => props.primaryColor+'7F'}, ${props => props.secondaryColor+'7F'}), url(${props => props.src});
 background-size: cover;

@@ -5,9 +5,9 @@ export const ButtonBase = styled.button`
     box-shadow: var(--shadow-elevation-low);
     border: none;
     color: white;
-    padding: 1em 1.25em;
+    padding: 1rem 1.25rem;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
 

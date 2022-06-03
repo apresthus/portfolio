@@ -14,4 +14,5 @@ min-height:300px;
 export const FooterText = styled.p`
 font-size:1.2em;
 color:white;
+padding: 1em;
 text-align:center;`; 
