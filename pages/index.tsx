@@ -1,5 +1,5 @@
-import { Card } from './components/card'
-import {Divider} from './components/divider'
+import { Card } from '../components/card'
+import {Divider} from '../components/divider'
 import styles from '../styles/Home.module.scss'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
@@ -8,7 +8,7 @@ import React, { useEffect } from 'react'
 import {motion, useAnimation} from 'framer-motion'
 import {useInView} from 'react-intersection-observer'
 import { v4 as uuidv4 } from 'uuid';
-import {Button} from './components/button/Button'
+import {Button} from '../components/button/Button'
 
 
 interface HypeTextProps {
