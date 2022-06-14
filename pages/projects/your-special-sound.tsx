@@ -14,12 +14,25 @@ interface ProjectProps {
     pageTemplate:EmberCMSPage,
      notFound:Boolean
    }
+interface ColumnProps {
+    children?: React.ReactNode,
+    className?: string,
+    start: number,
+    end: number,
+}
+interface RowProps {
+    children?: React.ReactNode,
+    className?: string,
+}
 
 const Grid = styled.div`
 display: grid;
 grid-template-columns: repeat(12, 1fr);
-grid-gap: 2em;
-justify-items: center;
+column-gap: 1.25rem;
+row-gap: 1rem;
+grid-auto-rows : minmax(min-content, max-content);  
+justify-items:start;
+grid-auto-flow: row;
 `;
 
 const FeatureBox = styled.section`
@@ -29,16 +42,18 @@ min-height: 20em;
 padding: 2em;
 color: white;
 font-weight: 400;
-grid-column-start: 3;
-grid-column-end: 11;
+grid-column-start: 2;
+grid-column-end: 12;
 
 *::selection {
   color: #fff;
   background:#000 !important;
   -webkit-text-fill-color: white;
 }
-
 `;
+
+
+
    
 const YourSpecialSoundPage: NextPage<ProjectProps> = ({page}) => {
 //const {content} = page;
@@ -49,34 +64,14 @@ const YourSpecialSoundPage: NextPage<ProjectProps> = ({page}) => {
                 <h1 className={styles.header__projecttitle}>Your Special Sound</h1>
                 <h2 className={styles.header__projectsubtitle}>personalized wall art from sound</h2>
             </div>
-            <FeatureBox>
-            <h3 className={styles.featurebox__featurestitle}>Features:</h3>
-            <ul>
-                <li><h3>Powerful Design Tools:</h3><p>Built on top of HTML5 Canvas for speed with an easy to use UI to empower customers to feel confident in their ability to create.</p></li>
-                <li><h3>Template System for ease of use:</h3><p>The customer can start designing from 6 starter templates so they can create something beautiful & unique without being a designer.</p></li>
-                <li><h3>Integrates with the Shopify Storefront API:</h3><p>Pulls products, variants & descriptions from Shopify. I also built a custom shopping cart solution.</p></li>
-                
-            </ul>
-            <h3 className={styles.featurebox__stacktitle}>Stack used:</h3>
-            <ul>
-                <li>React</li>
-                <li>Redux Toolkit</li>
-                <li>Google Firebase</li>
-                <li>Shopify Storefront API</li>
-                
-            </ul>
-            <h3 className={styles.featurebox__whatididtitle}>What I did:</h3>
-            <div><strong>Everything!</strong>
-            <p>Ideation, design and development</p></div>
-            </FeatureBox>
-            <h2 className={styles.project__heading}>Project overview & goals</h2>
-            <p className={styles.project__p}>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</p>
-            <p className={styles.project__p}>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</p>
-            <h2 className={styles.project__heading}>Design & Colors </h2>
-            <p className={styles.project__p}>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</p>
-            <p className={styles.project__p}>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</p>
-            <h2 className={styles.project__heading}>Typography</h2>
-            </Grid>
+    <h2 className={styles.project__heading}>project purpose & goals</h2>
+    <p className={styles.project__descriptor}>Powerful & easy for the customer, automated & maintainable for the business.</p>
+   <p className={styles.project__p_left}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan feugiat nunc eu commodo. Morbi dolor massa, euismod non nibh et, bibendum consectetur tellus. Donec sit amet dui et massa commodo scelerisque. Etiam condimentum vehicula vehicula. Praesent sit amet nisl est. Nullam quis vestibulum nibh. Donec vitae nulla fermentum, blandit turpis a, vulputate nulla. Duis egestas luctus accumsan. Praesent feugiat malesuada mauris, eget vehicula massa pellentesque at. Etiam at laoreet lacus. Donec turpis libero, ultrices ut pellentesque eu, feugiat eget dui. Mauris et condimentum sapien. Curabitur viverra sagittis tristique. Donec nulla arcu, malesuada sit amet rhoncus et, euismod vitae elit.
+Praesent sed auctor diam, vitae placerat est. Duis finibus ut leo eget viverra. Nunc sollicitudin sollicitudin eros in dapibus. Phasellus eu libero at lectus molestie gravida. Etiam erat augue, eleifend ut dapibus vitae, commodo eu leo. Pellentesque semper turpis eu laoreet suscipit. In bibendum felis sem, nec semper arcu laoreet vitae.</p>
+   <p className={styles.project__p_right}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan feugiat nunc eu commodo. Morbi dolor massa, euismod non nibh et, bibendum consectetur tellus. Donec sit amet dui et massa commodo scelerisque. Etiam condimentum vehicula vehicula. Praesent sit amet nisl est. Nullam quis vestibulum nibh. Donec vitae nulla fermentum, blandit turpis a, vulputate nulla. Duis egestas luctus accumsan. Praesent feugiat malesuada mauris, eget vehicula massa pellentesque at. Etiam at laoreet lacus. Donec turpis libero, ultrices ut pellentesque eu, feugiat eget dui. Mauris et condimentum sapien. Curabitur viverra sagittis tristique. Donec nulla arcu, malesuada sit amet rhoncus et, euismod vitae elit.</p>
+   <h2 className={styles.project__heading}>colors & design</h2>
+   <Image alt="" src="/yss.png" width="1195px" height="716px" layout='responsive'/>     
+        </Grid>
         
         
         <ProjectBreadcrumb next={"YSS Fulfillment Portal"} previous={"Ember CMS"} />

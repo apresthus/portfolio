@@ -21,12 +21,13 @@
     align-items:center;
     padding: 1em 0em;
     justify-content: center;
-    gap:1.5em;
+    gap:2em;
 }
 .hello__jobtitle{
     font-family: 'Poppins';
     font-style: normal;
     margin: 0;
+    margin-bottom: -0.5em;
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 2.2rem;
@@ -42,23 +43,26 @@
     font-weight: 300;
     font-size: 1.4rem;
     line-height: 150.9%;
+    padding-bottom: 2em;
     }
 
 .hello__name{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    margin: 0;
     font-size: 2.8rem;;
     align-self: flex-start;
     }
+.hello__workContainer{
 
+    }
 .hello__work{
     font-family: 'Caveat';
     font-style: normal;
+    display: fixed;
     font-weight: 400;
-    font-size: 36px;
-    line-height: 45px;
+    font-size: 2.3rem;
+    line-height: 3rem;
     background: linear-gradient(90.57deg, #F96615 30.18%, #F0548C 94.34%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

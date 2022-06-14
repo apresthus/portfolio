@@ -20,6 +20,16 @@ font-size:0.9rem;
 width:100%; ;
 `;
 
+export const Icon = styled.span`
+font-size: 4rem;
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
+
+`;
+
+
 export const Input = styled.input`
 font-size:0.9rem;
 width:100%;

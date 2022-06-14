@@ -1,6 +1,6 @@
 import React from 'react'
 import {FC,PropsWithChildren, useState} from 'react'
-import { Container, TextArea, Input, Label, SuccessText } from './styles/contact-form'
+import { Container, TextArea, Input, Label, SuccessText,Icon } from './styles/contact-form'
 import {Button} from '../button/Button'
 export default function ContactForm() {
 const [success, setSuccess] = useState(false)
@@ -23,12 +23,20 @@ const handleSubmit = async (e) => {
   
 }
 
+const resetForm = () => {
+    setSuccess(false)
+    setError(false)
+    
+}
+
 const SuccessScreen = () => {
     return (
       <Container>
+        <Icon>🎉</Icon>
         <SuccessText>
             Thank you for your message. I will get back to you as soon as possible.
         </SuccessText>
+        <Button onClick={() => resetForm()}>Reset</Button>
       </Container>
     )
 }
