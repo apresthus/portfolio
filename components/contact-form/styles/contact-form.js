@@ -12,7 +12,19 @@ box-shadow: 0px 4px 24px 6px rgba(0, 0, 0, 0.1);
 width: 85%;
 max-width: 700px;`;
 
-export const SuccessText = styled.p`color:green; text-align:center;`;
+export const SuccessText = styled.p`
+    background: linear-gradient(90.57deg, #FF3C11 0.25%, #FF008A 97.38%);
+    -webkit-background-clip: text;
+    text-align: center;
+    font-weight: 700;
+    line-height: 150%;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    margin-bottom: 1em;
+    font-size: 1.4rem;
+`;
 
 export const Label = styled.label`
 color:black;

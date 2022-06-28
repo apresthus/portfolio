@@ -15,6 +15,6 @@ export type EmberCMSPost = {
     createdAt:any,
     updatedAt:any,
     slug:string,
-    content:[any],
+    content:any[],
     uid:string
   }

@@ -3,7 +3,7 @@ import {FC,PropsWithChildren, useState} from 'react'
 import { Container, TextArea, Input, Label, SuccessText,Icon } from './styles/contact-form'
 import {Button} from '../button/Button'
 export default function ContactForm() {
-const [success, setSuccess] = useState(false)
+const [success, setSuccess] = useState(true)
 const [error, setError] = useState(false)
 
 
@@ -34,9 +34,9 @@ const SuccessScreen = () => {
       <Container>
         <Icon>🎉</Icon>
         <SuccessText>
-            Thank you for your message. I will get back to you as soon as possible.
+            Thank you for your message! <br></br> I will get back to you as soon as possible.
         </SuccessText>
-        <Button onClick={() => resetForm()}>Reset</Button>
+        <Button onClick={() => resetForm()}>New Message</Button>
       </Container>
     )
 }
