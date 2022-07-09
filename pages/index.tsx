@@ -9,7 +9,7 @@ import {motion, useAnimation} from 'framer-motion'
 import {useInView} from 'react-intersection-observer'
 import { v4 as uuidv4 } from 'uuid';
 import {Button} from '../components/button/Button'
-
+import dummyData from '../components/dummyData.json'
 
 interface HypeTextProps {
   primaryColor?: string,
@@ -21,6 +21,7 @@ interface HypeTextProps {
 const IntroTextStyle = styled.p<HypeTextProps> `
 font-size: 3rem;
 font-weight: bold;
+text-align: left;
 font-family: 'Poppins', sans-serif;
 margin-top: 0;
 margin-bottom: 0;
@@ -36,13 +37,14 @@ background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 margin-top: 0;
+text-align: left;
 margin-bottom: 0;
 
 `;
 
 export async function getStaticProps( ) {
 
-    const response : any = await fetch(`http://localhost:8080/api/page/0e3cee28-04f4-4842-a7ec-2b71d09947a9/home`)
+    const response : any = await fetch(`http://localhost:8080/api/collection/0e3cee28-04f4-4842-a7ec-2b71d09947a9/home`)
     
     const page =await response.json()
     
@@ -72,18 +74,34 @@ const Home : NextPage <HomeProps> = ({page}) => {
   const router = useRouter()
   const [ref, inView] = useInView()
   const animation = useAnimation()
-const emberData = JSON.parse(page.content[0].data);
+
+  const {content} = page;
+
+const PageContent = content.reduce((mapAccumulator:any, obj:any) => {
+    // either one of the following syntax works
+     mapAccumulator[obj.fieldName] = obj.data;
+    return mapAccumulator;
+  }, new Map());
+ 
 
 
+const {jobtitle, myName, about} = PageContent;
 
   return (
  
       <main className={styles.mainContainer}>
 
         <div className={styles.hello__container}>
-          <p className={styles.hello__jobtitle}>Front end developer</p>
-          <h3 className={styles.hello__name}>Alexander Presthus</h3>
-          <p className={styles.hello__about}>Morbi arcu justo, ornare eu ultricies id, tempor non mauris. Suspendisse feugiat dapibus sagittis. Sed ut lorem at ex ornare tempus sed sed dui. Vestibulum lectus elit, tempor dictum mollis sed, ornare vitae neque. Pellentesque condimentum mauris massa, eu porttitor dui tempor et. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer ac elit quis magna vulputate laoreet nec at lorem. Cras est enim, luctus eget quam finibus, eleifend commodo lacus. Suspendisse ac nisl eleifend, consectetur enim nec, dapibus purus. Quisque ut nulla lorem. Sed non pulvinar dui. Sed accumsan massa sit amet nisi egestas, ut placerat dolor auctor. Maecenas volutpat neque nec magna egestas blandit.</p>
+          <p className={styles.hello__jobtitle}>{jobtitle}</p>
+          <h3 className={styles.hello__name}>{myName}</h3>
+         { 
+         about.map((node:any, index:number) => {
+         return (<p key={index} className={styles.hello__about}>{node.children[0].text}</p>)
+
+         })
+       
+         
+         }
           <div className={styles.hello__buttons}><Button classes={null}>Download Resume</Button><Button classes={null}>Github</Button><Button classes={null}>LinkedIn</Button></div>
          <div className={styles.hello__workContainer}>
          <p className={styles.hello__work}>scroll to see my latest work</p>
@@ -96,7 +114,7 @@ const emberData = JSON.parse(page.content[0].data);
         </div>
       
 
-  {emberData.map((item:any) => {
+  {dummyData.map((item:any) => {
 
  const currentSlug = item.title.toString().replace(/\s+/g, '-').toLowerCase();
 

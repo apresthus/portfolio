@@ -21,6 +21,6 @@ export default function Navbar({children, ...restProps}) {
   
   
   return (
-    <NavbarContainer {...restProps}><LogoContainer onClick={() => router.push('/')}>{logoSVG}</LogoContainer><NavbarList>{children}</NavbarList></NavbarContainer>
+    <NavbarContainer {...restProps}><LogoContainer onClick={() => router.push('/')}>{logoSVG}</LogoContainer><NavbarList role={"list"}>{children}</NavbarList></NavbarContainer>
   )
 }

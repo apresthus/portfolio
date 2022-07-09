@@ -13,8 +13,8 @@ export const ProjectTitle = styled.h1`
     font-size: 5vw;
 }
 `;
-
-
+//FFD319 FF008A
+//#FF008A //  #5F00BA  // YSS
 export const ProjectSubtitle = styled.h2`
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -23,7 +23,7 @@ export const ProjectSubtitle = styled.h2`
     font-size: 7vw;
     line-height: 100%;
     text-align: center;
-    background: linear-gradient(92.94deg, #FF008A 5.12%, #5F00BA 85.82%);
+    background: linear-gradient(92.94deg, ${props => props.primaryColor} 5.12%,  ${props => props.secondaryColor} 85.82%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -148,7 +148,7 @@ grid-column-end: 11;
 
 
 export const Descriptor = styled.h3`
-    background: linear-gradient(92.94deg, #FF008A 5.12%, #5F00BA 85.82%);
+    background: linear-gradient(92.94deg, ${props => props.primaryColor} 5.12%, ${props => props.secondaryColor} 85.82%);
     -webkit-background-clip: text;
     grid-column-start: 3;
     grid-column-end: 12;

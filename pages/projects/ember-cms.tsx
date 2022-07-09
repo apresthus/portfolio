@@ -41,7 +41,7 @@ interface ProjectProps {
    export async function getStaticProps({params}:any ) {
  
   console.log(params)
-       const response : any = await fetch(`http://localhost:8080/api/collection/0e3cee28-04f4-4842-a7ec-2b71d09947a9/your-special-sound`)
+       const response : any = await fetch(`http://localhost:8080/api/collection/0e3cee28-04f4-4842-a7ec-2b71d09947a9/ember-cms`)
        
        const page =await response.json()
        
@@ -65,12 +65,15 @@ interface ProjectProps {
 
 
    
-const YourSpecialSoundPage: NextPage<ProjectProps> = ({page}) => {
+const EmberCMSPage: NextPage<ProjectProps> = ({page}) => {
 
 
 
 const {content} = page;
-
+const colorProps ={
+    primaryColor:"#FFD319", 
+    secondaryColor:"#FF008A"
+}
 const PageContent = content.reduce((mapAccumulator, obj) => {
     // either one of the following syntax works
      mapAccumulator[obj.fieldName] = obj.data;
@@ -139,28 +142,28 @@ console.log(page)
             <Grid>
             <HeaderContainer>
                 <ProjectTitle>{title}</ProjectTitle>
-                <ProjectSubtitle primaryColor={"#FF008A"} secondaryColor={"#5F00BA"}>{subtitle}</ProjectSubtitle> 
+                <ProjectSubtitle {...colorProps}>{subtitle}</ProjectSubtitle> 
             </HeaderContainer>
-            <Summary><strong>type:</strong><p>Personal project</p><strong>stack:</strong><p>React, Redux Toolkit, Firebase, Shopify Storefront API</p><strong>what i did:</strong><p>Everything</p><strong>site/demo:</strong><a href={"https://create.yourspecialsound.com"} className="inlineLink">View site</a></Summary>
+            <Summary><strong>type:</strong><p>Personal project</p><strong>stack:</strong><p>Next.js, Firebase, GraphQL (Apollo server), Typescript</p><strong>what i did:</strong><p>Everything</p><strong>site/demo:</strong><a href={"https://create.yourspecialsound.com"} className="inlineLink">View site</a></Summary>
      
      <Heading>{overviewHeading}</Heading>
-    <Descriptor >{overviewDescriptor}</Descriptor>
+    <Descriptor {...colorProps} >{overviewDescriptor}</Descriptor>
    <ParagraphLeft>{overviewContent}</ParagraphLeft>
 <img style={{gridColumnStart:"1", gridColumnEnd:"13", width:"85%", margin:"0 auto"}} src={content[5].data} />
 
 <Heading>tech stack & explanation</Heading>
-<Descriptor >React & Redux front end,<br></br> Shopify Storefront API in the backend.</Descriptor>
+<Descriptor {...colorProps} >React & Redux front end,<br></br> Shopify Storefront API in the backend.</Descriptor>
    <LeftStandin >Stack Illustration</LeftStandin>   
    <ParagraphRight>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan feugiat nunc eu commodo. Morbi dolor massa, euismod non nibh et, bibendum consectetur tellus. Donec sit amet dui et massa commodo scelerisque. Etiam condimentum vehicula vehicula. Praesent sit amet nisl est. Nullam quis vestibulum nibh. Donec vitae nulla fermentum, blandit turpis a, vulputate nulla. Duis egestas luctus accumsan. Praesent feugiat malesuada mauris, eget vehicula massa pellentesque at. Etiam at laoreet lacus. Donec turpis libero, ultrices ut pellentesque eu, feugiat eget dui. Mauris et condimentum sapien. Curabitur viverra sagittis tristique. Donec nulla arcu, malesuada sit amet rhoncus et, euismod vitae elit.</ParagraphRight>
   
    <Heading>challenges</Heading>
-   <Descriptor >Responsive, yet powerful & easy to use.</Descriptor>  
+   <Descriptor {...colorProps} >Responsive, yet powerful & easy to use.</Descriptor>  
    <ParagraphLeft>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan feugiat nunc eu commodo. Etiam condimentum vehicula vehicula. Praesent sit amet nisl est. Nullam quis vestibulum nibh. Donec vitae nulla fermentum, blandit turpis a, vulputate nulla. Duis egestas luctus accumsan. Praesent feugiat malesuada mauris, eget vehicula massa pellentesque at. Etiam at laoreet lacus. Donec turpis libero, ultrices ut pellentesque eu, feugiat eget dui. Mauris et condimentum sapien.</ParagraphLeft>
    <img style={{margin:"0 auto", width:"75%", gridColumnStart:"2", gridColumnEnd:"12"}} src={"/iphone-mockup.png"} />
    <ParagraphLeft>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan feugiat nunc eu commodo. Morbi dolor massa, euismod non nibh et, bibendum consectetur tellus. Donec sit amet dui et massa commodo scelerisque. Etiam condimentum vehicula vehicula. Praesent sit amet nisl est. Nullam quis vestibulum nibh. Donec vitae nulla fermentum, blandit turpis a, vulputate nulla. Duis egestas luctus accumsan. Praesent feugiat malesuada mauris, eget vehicula massa pellentesque at. Etiam at laoreet lacus. Donec turpis libero, ultrices ut pellentesque eu, feugiat eget dui. Mauris et condimentum sapien. Curabitur viverra sagittis tristique. Donec nulla arcu, malesuada sit amet rhoncus et, euismod vitae elit.</ParagraphLeft>
 
    <Heading>colors & design</Heading>
-   <Descriptor >Function over form, without looking ugly.</Descriptor>  
+   <Descriptor {...colorProps} >Function over form, without looking ugly.</Descriptor>  
    <ParagraphLeft>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan feugiat nunc eu commodo. Morbi dolor massa, euismod non nibh et, bibendum consectetur tellus. Donec sit amet dui et massa commodo scelerisque. Etiam condimentum vehicula vehicula. Praesent sit amet nisl est.</ParagraphLeft>
     <DesignImage src={"/yss2.png"} />
     <DesignImage src={"/yss.png"} />
@@ -175,4 +178,4 @@ console.log(page)
     )
 
 }
-export default YourSpecialSoundPage
+export default EmberCMSPage

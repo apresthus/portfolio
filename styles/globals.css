@@ -60,8 +60,16 @@ dd {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
-}
 
+
+}
+.inlineLink  {
+background-color: #FFECE8 
+}
+.inlineLink::after{
+  content: "";
+  
+}
 html,
 body {
   padding: 0;
@@ -93,6 +101,7 @@ img, picture, video, canvas, svg {
 
 a {
   color: inherit;
+
 }
 p,
 li {
