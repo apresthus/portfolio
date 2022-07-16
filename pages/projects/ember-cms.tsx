@@ -147,7 +147,7 @@ console.log(page)
             <Summary><strong>type:</strong><p>Personal project</p><strong>stack:</strong><p>Next.js, Firebase, GraphQL (Apollo server), Typescript</p><strong>what i did:</strong><p>Everything</p><strong>site/demo:</strong><a href={"https://create.yourspecialsound.com"} className="inlineLink">View site</a></Summary>
      
      <Heading>{overviewHeading}</Heading>
-    <Descriptor {...colorProps} >{overviewDescriptor}</Descriptor>
+    <Descriptor {...colorProps}  >{overviewDescriptor}</Descriptor>
    <ParagraphLeft>{overviewContent}</ParagraphLeft>
 <img style={{gridColumnStart:"1", gridColumnEnd:"13", width:"85%", margin:"0 auto"}} src={content[5].data} />
 
