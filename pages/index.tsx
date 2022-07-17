@@ -1,15 +1,17 @@
+/* eslint-disable @next/next/no-img-element */
 import { Card } from '../components/card'
 import {Divider} from '../components/divider'
 import styles from '../styles/Home.module.scss'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import { NextPage } from 'next'
-import React, { useEffect } from 'react'
-import {motion, useAnimation} from 'framer-motion'
-import {useInView} from 'react-intersection-observer'
+import React from 'react'
+import {motion} from 'framer-motion'
 import { v4 as uuidv4 } from 'uuid';
 import {Button} from '../components/button/Button'
 import dummyData from '../components/dummyData.json'
+import { ProjectCard } from '../components/project-card'
+import { ProjectPreview } from '../components/project-card/styles/project-card'
 
 interface HypeTextProps {
   primaryColor?: string,
@@ -19,9 +21,9 @@ interface HypeTextProps {
 }
 
 const IntroTextStyle = styled.p<HypeTextProps> `
-font-size: 3rem;
+font-size: 2rem;
 font-weight: bold;
-text-align: left;
+text-align: center;
 font-family: 'Poppins', sans-serif;
 margin-top: 0;
 margin-bottom: 0;
@@ -29,6 +31,28 @@ margin-bottom: 0;
   margin-top:0.6em ;
 }
 
+@media only screen and (min-width: 768px) {
+  font-size: 4rem;
+}
+
+`;
+
+const ProjectList = styled.ul`
+display: flex;
+flex-direction: column;
+width: 100%;
+padding: 2em;
+gap: 1em;
+
+@media only screen and (min-width: 768px) {
+  padding: 5rem;
+}
+`;
+
+const Group = styled.div `
+display: flex;
+flex-direction: column;
+gap: 1em;
 `;
 
 const HighligtedText = styled.span<HypeTextProps>`
@@ -37,10 +61,12 @@ background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 margin-top: 0;
-text-align: left;
+text-align: center;
 margin-bottom: 0;
 
 `;
+
+
 
 export async function getStaticProps( ) {
 
@@ -72,8 +98,7 @@ page: any
 
 const Home : NextPage <HomeProps> = ({page}) => {
   const router = useRouter()
-  const [ref, inView] = useInView()
-  const animation = useAnimation()
+
 
   const {content} = page;
 
@@ -82,6 +107,20 @@ const PageContent = content.reduce((mapAccumulator:any, obj:any) => {
      mapAccumulator[obj.fieldName] = obj.data;
     return mapAccumulator;
   }, new Map());
+
+  const characterAnimation = {
+    hidden: {
+      opacity: 0,
+    
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: [0.2, 0.65, 0.3, 0.9],
+      },
+    },
+  };
  
 
 
@@ -113,8 +152,8 @@ const {jobtitle, myName, about} = PageContent;
 
         </div>
       
-
-  {dummyData.map((item:any) => {
+<ProjectList>
+  {dummyData.map((item:any, index:number) => {
 
  const currentSlug = item.title.toString().replace(/\s+/g, '-').toLowerCase();
 
@@ -127,7 +166,7 @@ const {jobtitle, myName, about} = PageContent;
         {
         sentence.map((el:any, _idx:number) => {
           if (el.type === "highlight") return <HighligtedText primaryColor={item.primaryColor} secondaryColor={item.secondaryColor} key={uuidv4()}>{el.text}</HighligtedText>
-          else if (el.type === "text") return <motion.span  key={uuidv4()}>{el.text}</motion.span>
+          else if (el.type === "text") return <motion.span  initial={{opacity:.25}}  transition={{duration:1.25, delay:0.3, type:"cubic-bezier"}}   whileInView={{ opacity: 1 }}   viewport={{ once: true }} key={uuidv4()}>{el.text}</motion.span>
         })
     
         }
@@ -135,14 +174,21 @@ const {jobtitle, myName, about} = PageContent;
       )
     })}
      </div>
-    <Card onClick={() => () => router.push("/projects/"+currentSlug)} primaryColor={item.primaryColor} secondaryColor={item.secondaryColor} src={item.imageurl} alt={""} classes={"card"} key={uuidv4()}>
-    <Card.Title classes={"card__title"}>{item.title}</Card.Title>
-    <Card.Button onClick={() => router.push("/projects/"+currentSlug)} classes={"card__title"}>{"View Project" }</Card.Button>
-    </Card>
-    <Divider color={"#000505"} height={undefined}/>
+    <ProjectCard direction={index % 2? 'reverse': ''}  onClick={() => () => router.push("/projects/"+currentSlug)} primaryColor={item.primaryColor} secondaryColor={item.secondaryColor} src={item.imageurl} alt={""} classes={"card"} key={uuidv4()}>
+    <Group>
+    <ProjectCard.Title classes={"card__title"}>{item.title}</ProjectCard.Title>
+    <ProjectCard.Intro >{item.intro}</ProjectCard.Intro>
+    <ProjectCard.Stack>Next.Js Firebase GraphQL Typescript Slate.js</ProjectCard.Stack>
+    <ProjectCard.Button onClick={() => router.push("/projects/"+currentSlug)} className="project-button">{"View Project" }</ProjectCard.Button>
+    </Group>
+    <ProjectCard.ProjectPreview><img alt="" src={'/embertest.png'} /></ProjectCard.ProjectPreview>
+
+    </ProjectCard>
+
   </React.Fragment>
     )
   })}
+  </ProjectList>
    
 
       </main>

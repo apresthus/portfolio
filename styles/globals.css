@@ -87,6 +87,11 @@ textarea,
 select {
   font: inherit;
 }
+.project-button{
+  min-width: 40%;
+  max-width: 300px
+
+}
 
 body{
   min-height: 100vh;
@@ -103,8 +108,8 @@ a {
   color: inherit;
 
 }
-p,
-li {
+p
+{
   max-width: 75ch;
 }
 
