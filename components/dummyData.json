@@ -3,6 +3,7 @@
 
  {    
         "title" : "Ember CMS (MVP)",
+        "slug" : "ember-cms",
         "subtitle" : "developer oriented headless CMSs",
         "intro": "This is a CMS I built from scratch with a fully featured content creation tool suite such as a rich text editor that can handle inline images or embedded videos. The CMS also features a media library solution for easy integration and publishing of media such as images or videos. It uses Google Firestore and Google Cloud in the back-end. It connects to the front end either as a traditional REST API with multiple end points or with the custom built GraphQL server and endpoint. This portfolio’s content is 100% powered by Ember CMS!",
         "primaryColor": "#FFD319",
@@ -42,6 +43,7 @@
     },
   {   
         "title" : "Your Special Sound",
+        "slug" : "your-special-sound",
         "subtitle" : "personalized wall art based on sound with custom design tools",
         "intro": "This is a CMS I built from scratch with a fully featured content creation tool suite such as a rich text editor that can handle inline images or embedded videos. The CMS also features a media library solution for easy integration and publishing of media such as images or videos. It uses Google Firestore and Google Cloud in the back-end. It connects to the front end either as a traditional REST API with multiple end points or with the custom built GraphQL server and endpoint. This portfolio’s content is 100% powered by Ember CMS!",
         "primaryColor": "#5F00BA",
@@ -73,6 +75,7 @@
 },
     {   
         "title" : "YSS Fulfilment Portal",
+        "slug" : "yss-fulfilment-portal",
         "subtitle" : "automated generation of Prints from Shopify Orders",
         "intro": "This is a CMS I built from scratch with a fully featured content creation tool suite such as a rich text editor that can handle inline images or embedded videos. The CMS also features a media library solution for easy integration and publishing of media such as images or videos. It uses Google Firestore and Google Cloud in the back-end. It connects to the front end either as a traditional REST API with multiple end points or with the custom built GraphQL server and endpoint. This portfolio’s content is 100% powered by Ember CMS!",
         "primaryColor": "#0EA44A",

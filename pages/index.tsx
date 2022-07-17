@@ -155,7 +155,7 @@ const {jobtitle, myName, about} = PageContent;
 <ProjectList>
   {dummyData.map((item:any, index:number) => {
 
- const currentSlug = item.title.toString().replace(/\s+/g, '-').toLowerCase();
+ const currentSlug = item.slug
 
     return( 
     <React.Fragment key={uuidv4()}>
