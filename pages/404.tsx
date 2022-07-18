@@ -14,7 +14,7 @@ background: radial-gradient(79.18% 141.87% at 16.34% 25.26%, #FF005C 0%, #FFD319
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 background-clip: text;
-text-fill-color: transparent;
+color: transparent;
   `;
 
 export default function Custom404() {

@@ -89,9 +89,15 @@ select {
 }
 .project-button{
   min-width: 40%;
-  max-width: 300px
-
+  max-width: 300px;
+@media screen and (max-width: 1300px) {
+  min-width: 100%;
+  max-width: 100%;
 }
+}
+  
+
+
 
 body{
   min-height: 100vh;

@@ -1,6 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { Card } from '../components/card'
-import {Divider} from '../components/divider'
 import styles from '../styles/Home.module.scss'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
@@ -10,8 +8,7 @@ import {motion} from 'framer-motion'
 import { v4 as uuidv4 } from 'uuid';
 import {Button} from '../components/button/Button'
 import dummyData from '../components/dummyData.json'
-import { ProjectCard } from '../components/project-card'
-import { ProjectPreview } from '../components/project-card/styles/project-card'
+import { ProjectCard } from '../components/project-card';
 
 interface HypeTextProps {
   primaryColor?: string,
@@ -42,10 +39,11 @@ display: flex;
 flex-direction: column;
 width: 100%;
 padding: 2em;
-gap: 1em;
+gap: 0.5em;
 
 @media only screen and (min-width: 768px) {
   padding: 5rem;
+  gap: 1.5em;
 }
 `;
 
@@ -60,6 +58,7 @@ background: linear-gradient(99.14deg, ${props => props.primaryColor} 2.65%, ${pr
 background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
+color: transparent;
 margin-top: 0;
 text-align: center;
 margin-bottom: 0;
@@ -129,10 +128,10 @@ const {jobtitle, myName, about} = PageContent;
   return (
  
       <main className={styles.mainContainer}>
-
+      <section>
         <div className={styles.hello__container}>
           <p className={styles.hello__jobtitle}>{jobtitle}</p>
-          <h3 className={styles.hello__name}>{myName}</h3>
+          <h2 className={styles.hello__name}>{myName}</h2>
          { 
          about.map((node:any, index:number) => {
          return (<p key={index} className={styles.hello__about}>{node.children[0].text}</p>)
@@ -151,12 +150,13 @@ const {jobtitle, myName, about} = PageContent;
 
 
         </div>
-      
+        </section>
+        <section>
 <ProjectList>
   {dummyData.map((item:any, index:number) => {
 
  const currentSlug = item.slug
-
+const img = item.title === "Your Special Sound"? '/ysstest.png' : item.title === "YSS Fulfilment Portal"? '/yssfulfillmenttest.png' : '/embertest.png'
     return( 
     <React.Fragment key={uuidv4()}>
      <div id="projects" key={uuidv4()}  style={{textAlign:"center"}}>
@@ -176,12 +176,12 @@ const {jobtitle, myName, about} = PageContent;
      </div>
     <ProjectCard direction={index % 2? 'reverse': ''}  onClick={() => () => router.push("/projects/"+currentSlug)} primaryColor={item.primaryColor} secondaryColor={item.secondaryColor} src={item.imageurl} alt={""} classes={"card"} key={uuidv4()}>
     <Group>
-    <ProjectCard.Title classes={"card__title"}>{item.title}</ProjectCard.Title>
-    <ProjectCard.Intro >{item.intro}</ProjectCard.Intro>
+    <ProjectCard.Title> {item.title}</ProjectCard.Title>
+    <ProjectCard.Intro> {item.intro}</ProjectCard.Intro>
     <ProjectCard.Stack>Next.Js Firebase GraphQL Typescript Slate.js</ProjectCard.Stack>
     <ProjectCard.Button onClick={() => router.push("/projects/"+currentSlug)} className="project-button">{"View Project" }</ProjectCard.Button>
     </Group>
-    <ProjectCard.ProjectPreview><img alt="" src={'/embertest.png'} /></ProjectCard.ProjectPreview>
+    <ProjectCard.ProjectPreview><img alt="" src={img} /></ProjectCard.ProjectPreview>
 
     </ProjectCard>
 
@@ -189,7 +189,7 @@ const {jobtitle, myName, about} = PageContent;
     )
   })}
   </ProjectList>
-   
+  </section>
 
       </main>
 

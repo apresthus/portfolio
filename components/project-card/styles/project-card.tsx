@@ -16,7 +16,7 @@ justify-content:space-between;
 gap: 1em;
 font-size: 1.2rem;
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1300px) {
 
     flex-direction:${props => props.direction === 'reverse' ? 'row-reverse' : 'row'};
     column-gap: 3em;

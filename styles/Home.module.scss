@@ -17,6 +17,8 @@
     min-height: 100vh;
     justify-content: center;
 }
+    
+
 .hello__buttons{
     display: flex;
     flex-direction: row;
@@ -24,42 +26,83 @@
     padding: 1em 0em;
     justify-content: center;
     gap:2em;
+    font-size: .4rem;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 1rem;
+    }
 }
 .hello__jobtitle{
     font-family: 'Poppins';
     font-style: normal;
     margin: 0;
     margin-bottom: -0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 2.2rem;
     align-self: flex-start;
     color: #000000;
 
+    @media only screen and (min-width: 768px) {
+        font-size: 1.5rem;
+        padding-left: 0em;
+        padding-right: 0em;
     }
+
+    }
+    .hello__name{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2rem;
+        padding-left: .5em;
+        padding-right: .5em;
+        background: linear-gradient(90.65deg, #FF008A 4.21%, #FF3C11 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        align-self: flex-start;
+
+        @media only screen and (min-width: 768px) {
+            font-size: 2.8rem;
+         
+            padding-left: 0em;
+            padding-right: 0em;
+        }
+    
+        }
+
+  
+
+
+
 .hello__about{
     font-family: 'Archivo';
     font-style: normal;
     font-weight: 300;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 150.9%;
-    padding-bottom: 2em;
+    padding: 1em;
+
+    @media only screen and (min-width: 768px) {
+        font-weight: 300;
+        font-size: 1.4rem;
+        line-height: 150.9%;
+        padding-bottom: 2em;
+        padding-top: 0em;
+        padding-left: 0em;
+        padding-right: 0em;
+    }
     }
 
-.hello__name{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 2.8rem;
-    background: linear-gradient(90.65deg, #FF008A 4.21%, #FF3C11 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    align-self: flex-start;
-    }
 .hello__workContainer{
     position:relative;
     bottom: 0; 
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     }
 .hello__work{
     font-family: 'Caveat';
