@@ -9,6 +9,7 @@ width:100%;
 height:auto;
 margin-top: 2em;
 margin-bottom: 2em;
+text-align: left;
 display:flex;
 flex-direction:column-reverse;
 list-style: none;
@@ -27,10 +28,13 @@ export const Title = styled.h2`
 font-size: 2.5rem;
 `;
 
-export const Intro = styled.p``;
+export const Intro = styled.p`
+
+`;
 
 export const Stack = styled.p`
 font-weight: 500;
+
 `;
 
 export const ProjectPreview = styled.div`

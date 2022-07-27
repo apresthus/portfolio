@@ -7,13 +7,12 @@ import React from 'react'
 import {motion} from 'framer-motion'
 import { v4 as uuidv4 } from 'uuid';
 import {Button} from '../components/button/Button'
-import dummyData from '../components/dummyData.json'
 import { ProjectCard } from '../components/project-card';
 
 interface HypeTextProps {
   primaryColor?: string,
   secondaryColor?: string,
-  children?: JSX.Element;
+  children: any
   key: any,
 }
 
@@ -100,12 +99,17 @@ const Home : NextPage <HomeProps> = ({page}) => {
 
 
   const {content} = page;
-
+//console.log(content)
 const PageContent = content.reduce((mapAccumulator:any, obj:any) => {
     // either one of the following syntax works
      mapAccumulator[obj.fieldName] = obj.data;
     return mapAccumulator;
   }, new Map());
+
+  let {emberAboutText, emberAboutHeading,emberAboutStack, emberAboutImage, emberHypeText} = PageContent;
+  emberAboutText = emberAboutText[0].children[0].text;
+
+//console.log(emberHypeText)
 
   const characterAnimation = {
     hidden: {
@@ -123,7 +127,9 @@ const PageContent = content.reduce((mapAccumulator:any, obj:any) => {
  
 
 
+
 const {jobtitle, myName, about} = PageContent;
+
 
   return (
  
@@ -153,41 +159,51 @@ const {jobtitle, myName, about} = PageContent;
         </section>
         <section>
 <ProjectList>
-  {dummyData.map((item:any, index:number) => {
 
- const currentSlug = item.slug
-const img = item.title === "Your Special Sound"? '/ysstest.png' : item.title === "YSS Fulfilment Portal"? '/yssfulfillmenttest.png' : '/embertest.png'
-    return( 
+   
     <React.Fragment key={uuidv4()}>
      <div id="projects" key={uuidv4()}  style={{textAlign:"center"}}>
-    {item.hypeText.map((sentence: any) => {
-      return(
-        <IntroTextStyle key={uuidv4()}>
-        {
-        sentence.map((el:any, _idx:number) => {
-          if (el.type === "highlight") return <HighligtedText primaryColor={item.primaryColor} secondaryColor={item.secondaryColor} key={uuidv4()}>{el.text}</HighligtedText>
-          else if (el.type === "text") return <motion.span  initial={{opacity:.25}}  transition={{duration:1.25, delay:0.3, type:"cubic-bezier"}}   whileInView={{ opacity: 1 }}   viewport={{ once: true }} key={uuidv4()}>{el.text}</motion.span>
-        })
-    
-        }
-        </IntroTextStyle>
-      )
-    })}
-     </div>
-    <ProjectCard direction={index % 2? 'reverse': ''}  onClick={() => () => router.push("/projects/"+currentSlug)} primaryColor={item.primaryColor} secondaryColor={item.secondaryColor} src={item.imageurl} alt={""} classes={"card"} key={uuidv4()}>
-    <Group>
-    <ProjectCard.Title> {item.title}</ProjectCard.Title>
-    <ProjectCard.Intro> {item.intro}</ProjectCard.Intro>
-    <ProjectCard.Stack>Next.Js Firebase GraphQL Typescript Slate.js</ProjectCard.Stack>
-    <ProjectCard.Button onClick={() => router.push("/projects/"+currentSlug)} className="project-button">{"View Project" }</ProjectCard.Button>
-    </Group>
-    <ProjectCard.ProjectPreview><img alt="" src={img} /></ProjectCard.ProjectPreview>
+ 
+   
+      
+  { 
+      emberHypeText.map((sentence:any) =>{
 
-    </ProjectCard>
+      return  <IntroTextStyle key={uuidv4()}>
+                  {       
+                        sentence.children.map((word:any) =>{
+
+                                if (word.underline) return <HighligtedText  primaryColor={'#FFD319'} secondaryColor={'#FF008A'} key={uuidv4()}>{word.text}</HighligtedText>
+                                else return <motion.span  initial={{opacity:.25}}  transition={{duration:1.25, delay:0.3, type:"cubic-bezier"}}   whileInView={{ opacity: 1 }}   viewport={{ once: true }} key={uuidv4()}>{word.text}</motion.span>
+                                }
+                            )
+                    } 
+                        
+     </IntroTextStyle>
+       
+      })
+
+
+    
+}
+      
+<ProjectCard   onClick={() => () => router.push("/projects/ember-cms")} primaryColor={'#FFD319'} secondaryColor={'#FF008A'} src={emberAboutImage} alt={""} classes={"card"} key={uuidv4()}>
+    <Group>
+    <ProjectCard.Title>{emberAboutHeading}</ProjectCard.Title>
+    <ProjectCard.Intro>{emberAboutText}</ProjectCard.Intro>
+    <ProjectCard.Stack>{emberAboutStack}</ProjectCard.Stack>
+    <ProjectCard.Button onClick={() => router.push("/projects/ember-cms")} className="project-button">{"View Project" }</ProjectCard.Button>
+    </Group>
+    <ProjectCard.ProjectPreview><img alt="" src={emberAboutImage} /></ProjectCard.ProjectPreview>
+
+</ProjectCard>
+     
+
+ </div>
 
   </React.Fragment>
-    )
-  })}
+    
+
   </ProjectList>
   </section>
 
