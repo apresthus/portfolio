@@ -4,7 +4,7 @@ interface ProjectCardProps {
     direction:string
 }
 
-export const Container = styled.li<ProjectCardProps>`
+export const Container = styled.div<ProjectCardProps>`
 width:100%;
 height:auto;
 margin-top: 2em;

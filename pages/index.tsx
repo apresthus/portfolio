@@ -36,8 +36,9 @@ margin-bottom: 0;
 const ProjectList = styled.ul`
 display: flex;
 flex-direction: column;
+list-style: none;
 width: 100%;
-padding: 2em;
+padding: 1em;
 gap: 0.5em;
 
 @media only screen and (min-width: 768px) {
@@ -112,24 +113,6 @@ const PageContent = content.reduce((mapAccumulator:any, obj:any) => {
   yssFulfilAboutText = yssFulfilAboutText[0].children[0].text;
   
 
-//console.log(emberHypeText)
-
-  const characterAnimation = {
-    hidden: {
-      opacity: 0,
-    
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 1,
-        ease: [0.2, 0.65, 0.3, 0.9],
-      },
-    },
-  };
- 
-
-
 
 const {jobtitle, myName, about} = PageContent;
 
@@ -161,15 +144,16 @@ const {jobtitle, myName, about} = PageContent;
         </div>
         </section>
         <section>
-<ProjectList>
+<ProjectList  id="projects" key={uuidv4()}  style={{textAlign:"center"}}>
 
    
-    <React.Fragment key={uuidv4()}>
-     <div id="projects" key={uuidv4()}  style={{textAlign:"center"}}>
+
+
  
    
-      
+<li>
   { 
+ 
       emberHypeText.map((sentence:any) =>{
 
       return  <IntroTextStyle key={uuidv4()}>
@@ -200,7 +184,8 @@ const {jobtitle, myName, about} = PageContent;
     <ProjectCard.ProjectPreview><img alt="" src={emberAboutImage} /></ProjectCard.ProjectPreview>
 
 </ProjectCard>
-
+</li>
+<li>
 { 
       yssHypeText.map((sentence:any) =>{
 
@@ -233,7 +218,8 @@ const {jobtitle, myName, about} = PageContent;
 
 </ProjectCard>
 
-
+</li>
+<li>
 { 
       yssFulfilHypeText.map((sentence:any) =>{
 
@@ -266,11 +252,8 @@ const {jobtitle, myName, about} = PageContent;
 
 </ProjectCard>
 
- </div>
 
-  </React.Fragment>
-    
-
+</li>
   </ProjectList>
   </section>
 
