@@ -2,11 +2,8 @@
     display: flex;
     margin-bottom:2em;
     flex-direction: column;
-    max-width: 1400px;
     text-align: left;
-    padding:1em;
     align-items:center;
-    margin: 0 auto;
     justify-content: center;
 }
 .hello__container{
@@ -104,6 +101,7 @@
     flex-direction: column;
     gap: 1em;
     }
+    
 .hello__work{
     font-family: 'Caveat';
     font-style: normal;
@@ -114,6 +112,10 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+.imageContainer{
+    max-width: 1920px;
+    margin-bottom:2em;
 }
 
 
