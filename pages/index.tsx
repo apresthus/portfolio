@@ -19,7 +19,7 @@ interface HypeTextProps {
 }
 
 const IntroTextStyle = styled.p<HypeTextProps> `
-font-size: 2rem;
+font-size: 2.6rem;
 font-weight: bold;
 text-align: center;
 font-family: 'Poppins', sans-serif;
@@ -46,11 +46,6 @@ gap: 1em;
 
 `;
 
-const Group = styled.div `
-display: flex;
-flex-direction: column;
-gap: 1em;
-`;
 
 const HighligtedText = styled.span<HypeTextProps>`
 background: linear-gradient(145.14deg, ${props => props.primaryColor} 10.65%, ${props => props.secondaryColor} 90.04%);
@@ -124,8 +119,11 @@ const {jobtitle, myName, about} = PageContent;
           <p className={styles.hello__jobtitle}>{jobtitle}</p>
           <h2 className={styles.hello__name}>{myName}</h2>
          { 
-         about.map((node:any, index:number) => {
-         return (<p key={index} className={styles.hello__about}>{node.children[0].text}</p>)
+         about.map((node:any, idx:number) => {
+         return (<p key={idx} className={styles.hello__about}>{node.children.map((el:any, index:number) =>{
+          if (el.url) return <a key={el.url} href={el.url} >{el.children[0].text}</a>
+          return <span key={index}>{el.text}</span>
+         })}</p>)
 
          })
        
@@ -148,7 +146,7 @@ const {jobtitle, myName, about} = PageContent;
 <li>
 
       
-<ProjectSection   onClick={() => () => router.push("/projects/ember-cms")} primaryColor={'#FFD319'} secondaryColor={'#FF008A'} src={emberAboutImage} alt={""} classes={"card"} key={uuidv4()}>
+<ProjectSection    primaryColor={'#FFD319'} secondaryColor={'#FF008A'} src={emberAboutImage} alt={""} classes={"card"} key={uuidv4()}>
     <ProjectSection.Title>{emberAboutHeading}</ProjectSection.Title>
     { 
  
@@ -180,7 +178,7 @@ const {jobtitle, myName, about} = PageContent;
 <li>
 
       
-<ProjectSection dark  onClick={() => () => router.push("/projects/your-special-sound")} primaryColor={'#DA8CFF'} secondaryColor={'##FF008A'} src={emberAboutImage} alt={""} classes={"card"} key={uuidv4()}>
+<ProjectSection dark  primaryColor={'#DA8CFF'} secondaryColor={'##FF008A'} src={emberAboutImage} alt={""} classes={"card"} key={uuidv4()}>
     <ProjectSection.Title dark>{yssAboutHeading}</ProjectSection.Title>
     { 
       yssHypeText.map((sentence:any) =>{
@@ -205,7 +203,7 @@ const {jobtitle, myName, about} = PageContent;
     <ProjectSection.Intro>{yssAboutText}</ProjectSection.Intro>
     <ProjectSection.Stack>{yssStack}</ProjectSection.Stack>
     <div className={styles.imageContainer}> <Image  alt="" width="3248px" height="1590px" src="/ysstest.png"/></div>
-    <ProjectSection.Button onClick={() => router.push("/projects/ember-cms")} className="project-button">{"View Project" }</ProjectSection.Button>
+    <ProjectSection.Button onClick={() => router.push("/projects/your-special-sound")} className="project-button">{"View Project" }</ProjectSection.Button>
   
 
 
@@ -241,7 +239,7 @@ const {jobtitle, myName, about} = PageContent;
     <ProjectSection.Intro>{yssFulfilAboutText}</ProjectSection.Intro>
     <ProjectSection.Stack>{yssFulfilStack }</ProjectSection.Stack>
     <div className={styles.imageContainer}> <Image  alt="" width="3248px" height="1590px" src="/yssTest.png"/></div>
-    <ProjectSection.Button onClick={() => router.push("/projects/ember-cms")} className="project-button">{"View Project" }</ProjectSection.Button>
+    <ProjectSection.Button onClick={() => router.push("/projects/yss-fulfilment-portal")} className="project-button">{"View Project" }</ProjectSection.Button>
    
   
 

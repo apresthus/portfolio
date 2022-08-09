@@ -4,7 +4,7 @@ import {EmberCMSPage} from '../../types'
 import Image from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
-import {Heading, ProjectTitle, ProjectSubtitle, DesignImage, HeaderContainer, Summary, LeftStandin,PaletteContainer, Descriptor, ParagraphLeft,CenterParagraph, ParagraphRight, ColorPalette, Color} from '../../styles/projects/project-detail.js'
+import {Heading, ProjectTitle, ProjectSubtitle, DesignImage, HeaderContainer, Summary, LeftStandin,PaletteContainer, Descriptor, ParagraphLeft,CenterParagraph, ParagraphRight, ColorPalette, Color} from '../../styles/projects/project-detail'
 
 interface ProjectProps {
     page:EmberCMSPage,

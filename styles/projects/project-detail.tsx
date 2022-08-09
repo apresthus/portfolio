@@ -1,5 +1,10 @@
 import styled from "styled-components";
-
+interface GradientTextProps{
+    primaryColor?: string,
+    secondaryColor?: string,
+    children?: any
+    key?: any,
+}
 export const ProjectTitle = styled.h1`
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -15,7 +20,7 @@ export const ProjectTitle = styled.h1`
 `;
 //FFD319 FF008A
 //#FF008A //  #5F00BA  // YSS
-export const ProjectSubtitle = styled.h2`
+export const ProjectSubtitle = styled.h2<GradientTextProps>`
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -32,7 +37,6 @@ export const ProjectSubtitle = styled.h2`
     flex-direction: column;
     font-size: 9vw;
 }
-
     `;
 
 export const HeaderContainer = styled.div`
@@ -90,30 +94,30 @@ export const ColorPalette = styled.div`
 `;
 
 export const PaletteContainer = styled.div`
-display: flex;
-gap: 1em;
-flex-direction: column;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
 `;
 
 export const Color = styled.div`
-background-color: ${props => props.color};
-box-shadow: 0px 13px 20px -1px rgba(0, 0, 0, 0.18);
-height: 110px;
-width: 110px;
-border-radius: 100vh;
+    background-color: ${props => props.color};
+    box-shadow: 0px 13px 20px -1px rgba(0, 0, 0, 0.18);
+    height: 110px;
+    width: 110px;
+    border-radius: 100vh;
 `;
 
 export const Summary = styled.span`
-display: flex;
-margin: 3em auto;
-grid-column-start: 2;
-grid-column-end: 12;
-gap: .5em;
+    display: flex;
+    margin: 3em auto;
+    grid-column-start: 2;
+    grid-column-end: 12;
+    gap: .5em;
 
-@media screen and (max-width: 768px) { 
-    flex-direction: column;
-    margin: inherit;
-}
+    @media screen and (max-width: 768px) { 
+        flex-direction: column;
+        margin: inherit;
+    }
 `;
 
 export const LeftStandin = styled.div`
@@ -136,8 +140,9 @@ export const LeftStandin = styled.div`
 
     `
 export const DesignImage = styled.img`
-grid-column-start: 3;
-grid-column-end: 11;
+    grid-column-start: 3;
+    grid-column-end: 11;
+
 @media screen and (max-width: 768px) { 
     flex-direction: column;
     grid-column-start: 2;
@@ -145,26 +150,28 @@ grid-column-end: 11;
 }
 `;
 
-
-
 export const Descriptor = styled.h3`
-    background: linear-gradient(92.94deg, ${props => props.primaryColor} 5.12%, ${props => props.secondaryColor} 85.82%);
-    -webkit-background-clip: text;
+    color: black;
     grid-column-start: 3;
-    grid-column-end: 12;
+    grid-column-end: 13;
+    font-size: 3.5rem;
     font-weight: 700;
+    width: 100%;
     line-height: 113%;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-size: 2.4rem;
-
     @media screen and (max-width: 768px) { 
     flex-direction: column;
     grid-column-start: 2;
     grid-column-end: 12; 
 }
+`;
+
+export const GradientText = styled.span<GradientTextProps>`
+    background: linear-gradient(145.14deg, ${props => props.primaryColor} 10.65%, ${props => props.secondaryColor} 90.04%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;  
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
 `;
 
 export const ImageLeft = styled.img``

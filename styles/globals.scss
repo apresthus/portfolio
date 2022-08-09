@@ -117,6 +117,10 @@ a {
 p
 {
   max-width: 75ch;
+  @media screen and (max-width: 768px) {
+   padding-left:1em;
+   padding-right:1em;
+  }
 }
 
 h1 {
@@ -125,7 +129,7 @@ h1 {
 
 h2,
 h3 {
-  max-width: 35ch;
+  max-width: 45ch;
 }
 ::selection {
   color: #fff;
@@ -133,6 +137,9 @@ h3 {
   -webkit-text-fill-color: white;
 }
 
+.block{
+  display:block
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,

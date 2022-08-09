@@ -28,7 +28,7 @@ margin-top:1.2em;
 export const Title = styled.h2<StyledProps>`
 font-weight : 600;
 color: ${props => props.dark? 'white' : 'black'};
-font-size: 1.9rem;`;
+font-size: 1.3rem;`;
 
 export const Stack = styled.p`
 background: linear-gradient(90.65deg, #FF008A 4.21%, #FF3C11 100%);
@@ -41,3 +41,4 @@ font-size: 1rem;
 margin-bottom: 4em;
 line-height: 1.5rem;
 `;
+

@@ -1,12 +1,22 @@
 
 import React, { useCallback } from 'react'
 
-export default function RichText(props) {
-  return (
-    <div> RichText</div>
-  )
+
+/**
+ *
+ *
+ * @export
+ * @param {(string|Object|Array<any>)} data - The data to be rendered fetched from Ember CMS
+ * @param {Map<string,JSX.Element>} elementMap - Map supported nodeTypes to your custom components
+ * @return {*}  {JSX.Element} - Returns the approppriate component type(s)
+ */
+export function EmberParse(data:string|Object|Array<any>, elementMap:Map<string,JSX.Element>):JSX.Element {
+
+  
+  return <p></p>
 }
-const NODETYPES = [
+
+export const NODETYPES = [
     'heading-one',
     'heading-two',
     'heading-three',
