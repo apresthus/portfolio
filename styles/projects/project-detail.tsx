@@ -5,12 +5,19 @@ interface GradientTextProps{
     children?: any
     key?: any,
 }
+
+interface ContentProps {
+    direction?: string,
+    justify?: string,
+    gap?: string,
+}
 export const ProjectTitle = styled.h1`
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 2vw;
     margin:0;
+  
     color:#000505;
     
     @media screen and (max-width: 768px) { 
@@ -27,6 +34,7 @@ export const ProjectSubtitle = styled.h2<GradientTextProps>`
     line-height: 100%;
     font-size: 7vw;
     line-height: 100%;
+    letter-spacing: -.04em;
     text-align: center;
     background: linear-gradient(92.94deg, ${props => props.primaryColor} 5.12%,  ${props => props.secondaryColor} 85.82%);
     -webkit-background-clip: text;
@@ -123,7 +131,6 @@ export const Summary = styled.span`
 export const LeftStandin = styled.div`
     grid-column-start: 3;
     grid-column-end: 7;
-    height: 400px;
     background-color: teal;
     display: flex;
     flex-direction: column;
@@ -154,6 +161,7 @@ export const Descriptor = styled.h3`
     color: black;
     grid-column-start: 3;
     grid-column-end: 13;
+    margin-bottom: .20em;
     font-size: 3.5rem;
     font-weight: 700;
     width: 100%;
@@ -162,6 +170,9 @@ export const Descriptor = styled.h3`
     flex-direction: column;
     grid-column-start: 2;
     grid-column-end: 12; 
+    font-size: 2rem;
+
+    
 }
 `;
 
@@ -177,28 +188,61 @@ export const GradientText = styled.span<GradientTextProps>`
 export const ImageLeft = styled.img``
 export const ImageRight = styled.img``;
 export const ParagraphLeft = styled.p`
+  
     grid-column-start: 3;
     font-size: large;
-    grid-column-end: 10;
+    grid-column-end: 12;
+    padding: 0;
     width: 100%;
     @media screen and (max-width: 768px) { 
     flex-direction: column;
     grid-column-start: 2;
-    grid-column-end: 12; 
 }
     `
 
-export const ParagraphRight = styled.p`
-    grid-column-start: 7;
-    grid-column-end: 12; 
+export const ParagraphRight = styled.span`
+    grid-column: 7/12;
     text-align: left;
     font-size: large;
-    width: 100%;    
+    max-height: min-content;
+    padding: 0;
+    
 
     @media screen and (max-width: 768px) { 
     flex-direction: column;
     grid-column-start: 2;
     grid-column-end: 12; 
+    
+}
+&:first-child {
+    margin-top: 0em !important;
+}
+`;
+
+export const Subheading = styled.h3`
+font-weight: 500;
+font-size: 1.6rem;
+`;
+
+export const ContentBlock = styled.div<ContentProps>`
+   display: flex;
+   flex-direction: ${props => props.direction? props.direction : "column"};
+   grid-column-start: 2;
+   grid-column-end: 12;
+   padding: 0;
+   margin-bottom: 2em;
+   gap:  ${props => props.gap === "none"? props.gap : "2em"};
+   justify-content:  ${props => props.justify? props.justify : "space-between"};
+   align-items: center;
+  
+  
+@media screen and (min-width: 1360px){
+    flex-direction: ${props => props.direction? props.direction : "row"};
+    justify-content:  ${props => props.justify? props.justify : ""};
+
+    grid-column-start: 3;
+   grid-column-end: 12;
+    align-items: flex-start ;
 }
 `;
 

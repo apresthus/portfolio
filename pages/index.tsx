@@ -1,63 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from '../styles/Home.module.scss'
 import { useRouter } from 'next/router'
-import styled from 'styled-components'
 import { NextPage } from 'next'
 import React from 'react'
 import {motion} from 'framer-motion'
 import { v4 as uuidv4 } from 'uuid';
 import {Button} from '../components/button/Button'
-import { ProjectCard } from '../components/project-card';
 import { ProjectSection } from '../components/project-section'
 import Image from 'next/image'
-
-interface HypeTextProps {
-  primaryColor?: string,
-  secondaryColor?: string,
-  children: any
-  key: any,
-}
-
-const IntroTextStyle = styled.p<HypeTextProps> `
-font-size: 2.6rem;
-font-weight: bold;
-text-align: center;
-font-family: 'Poppins', sans-serif;
-line-height: 100%;
-margin-top: 0;
-&:first-child{
-  margin-top:0.6em ;
-}
-
-@media only screen and (min-width: 768px) {
-  font-size: 4rem;
-}
-
-`;
-
-const ProjectList = styled.ul`
-display: flex;
-flex-direction: column;
-list-style: none;
-width: 100%;
-padding-left: 0;
-margin: 0;
-gap: 1em;
-
-`;
+import { IntroTextStyle, ProjectList, HighlightedText } from '../styles/home/home'
 
 
-const HighligtedText = styled.span<HypeTextProps>`
-background: linear-gradient(145.14deg, ${props => props.primaryColor} 10.65%, ${props => props.secondaryColor} 90.04%);
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-color: transparent;
-margin-top: 0;
-text-align: center;
-margin-bottom: 0;
-
-`;
 
 
 
@@ -101,7 +54,7 @@ const PageContent = content.reduce((mapAccumulator:any, obj:any) => {
     return mapAccumulator;
   }, new Map());
 
-  let {emberAboutText, emberAboutHeading,emberAboutStack, emberAboutImage, emberHypeText, yssHypeText, yssAboutText, yssStack, yssAboutImage, yssAboutHeading, yssFulfilImage,yssFulfilTitle, yssFulfilHypeText,yssFulfilStack, yssFulfilAboutText } = PageContent;
+  let {emberAboutText, emberAboutHeading,emberAboutStack, emberHypeText, yssHypeText, yssAboutText, yssStack,  yssAboutHeading, yssFulfilTitle, yssFulfilHypeText,yssFulfilStack, yssFulfilAboutText } = PageContent;
   emberAboutText = emberAboutText[0].children[0].text;
   yssAboutText = yssAboutText[0].children[0].text;
   yssFulfilAboutText = yssFulfilAboutText[0].children[0].text;
@@ -141,12 +94,12 @@ const {jobtitle, myName, about} = PageContent;
         </div>
         </section>
         <section>
-<ProjectList  id="projects" key={uuidv4()}  style={{textAlign:"center"}}>
+<ProjectList  id="projects">
 
 <li>
 
       
-<ProjectSection    primaryColor={'#FFD319'} secondaryColor={'#FF008A'} src={emberAboutImage} alt={""} classes={"card"} key={uuidv4()}>
+<ProjectSection>
     <ProjectSection.Title>{emberAboutHeading}</ProjectSection.Title>
     { 
  
@@ -156,7 +109,7 @@ const {jobtitle, myName, about} = PageContent;
              {       
                    sentence.children.map((word:any) =>{
 
-                           if (word.underline) return <HighligtedText  primaryColor={'#FFD319'} secondaryColor={'#FF008A'} key={uuidv4()}>{word.text}</HighligtedText>
+                           if (word.underline) return <HighlightedText  primaryColor={'#FFD319'} secondaryColor={'#FF008A'} key={uuidv4()}>{word.text}</HighlightedText>
                            else return <motion.span  initial={{opacity:.25}}  transition={{duration:1.25, delay:0.3, type:"cubic-bezier"}}   whileInView={{ opacity: 1 }}   viewport={{ once: true }} key={uuidv4()}>{word.text}</motion.span>
                            }
                        )
@@ -171,14 +124,14 @@ const {jobtitle, myName, about} = PageContent;
 }
     <ProjectSection.Intro>{emberAboutText}</ProjectSection.Intro>
     <ProjectSection.Stack>{emberAboutStack}</ProjectSection.Stack>
-   <div className={styles.imageContainer}> <Image  alt="" width="3248px" height="1590px" src="/testing.png"/></div>
+   <div className={styles.imageContainer}> <Image  alt="" width="2516" height="587" src="/testing.png"/></div>
     <ProjectSection.Button onClick={() => router.push("/projects/ember-cms")} className="project-button">{"View Project" }</ProjectSection.Button>
 </ProjectSection>
 </li>
 <li>
 
       
-<ProjectSection dark  primaryColor={'#DA8CFF'} secondaryColor={'##FF008A'} src={emberAboutImage} alt={""} classes={"card"} key={uuidv4()}>
+<ProjectSection dark>
     <ProjectSection.Title dark>{yssAboutHeading}</ProjectSection.Title>
     { 
       yssHypeText.map((sentence:any) =>{
@@ -187,7 +140,7 @@ const {jobtitle, myName, about} = PageContent;
                   {       
                         sentence.children.map((word:any) =>{
 
-                                if (word.underline) return <HighligtedText  primaryColor={'#DA8CFF'} secondaryColor={'#FF008A'} key={uuidv4()}>{word.text}</HighligtedText>
+                                if (word.underline) return <HighlightedText  primaryColor={'#DA8CFF'} secondaryColor={'#FF008A'} key={uuidv4()}>{word.text}</HighlightedText>
                                 else return <motion.span  initial={{opacity:.25}}  transition={{duration:1.25, delay:0.3, type:"cubic-bezier"}}   whileInView={{ opacity: 1 }}   viewport={{ once: true }} key={uuidv4()}>{word.text}</motion.span>
                                 }
                             )
@@ -202,7 +155,7 @@ const {jobtitle, myName, about} = PageContent;
 }    
     <ProjectSection.Intro>{yssAboutText}</ProjectSection.Intro>
     <ProjectSection.Stack>{yssStack}</ProjectSection.Stack>
-    <div className={styles.imageContainer}> <Image  alt="" width="3248px" height="1590px" src="/ysstest.png"/></div>
+    <div className={styles.imageContainer}> <Image  alt="" width="1342" height="254" src="/ysstesting.png"/></div>
     <ProjectSection.Button onClick={() => router.push("/projects/your-special-sound")} className="project-button">{"View Project" }</ProjectSection.Button>
   
 
@@ -213,7 +166,7 @@ const {jobtitle, myName, about} = PageContent;
 <li>
 
       
-<ProjectSection direction={''}  onClick={() => () => router.push("/projects/yss-fulfilment-portal")} primaryColor={'#0EA44A'} secondaryColor={'#07B9E8'} src={yssFulfilImage} alt={""} classes={"card"} key={uuidv4()}>
+<ProjectSection>
     
     <ProjectSection.Title>{yssFulfilTitle}</ProjectSection.Title>
     { 
@@ -223,7 +176,7 @@ const {jobtitle, myName, about} = PageContent;
                   {       
                         sentence.children.map((word:any) =>{
 
-                                if (word.underline) return <HighligtedText  primaryColor={'#0EA44A'} secondaryColor={'#07B9E8'} key={uuidv4()}>{word.text}</HighligtedText>
+                                if (word.underline) return <HighlightedText  primaryColor={'#0EA44A'} secondaryColor={'#07B9E8'} key={uuidv4()}>{word.text}</HighlightedText>
                                 else return <motion.span  initial={{opacity:.25}}  transition={{duration:1.25, delay:0.3, type:"cubic-bezier"}}   whileInView={{ opacity: 1 }}   viewport={{ once: true }} key={uuidv4()}>{word.text}</motion.span>
                                 }
                             )
