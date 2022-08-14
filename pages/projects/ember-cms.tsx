@@ -41,7 +41,7 @@ interface ProjectProps {
    export async function getStaticProps({params}:any ) {
  
   console.log(params)
-       const response : any = await fetch(`http://localhost:8080/api/collection/0e3cee28-04f4-4842-a7ec-2b71d09947a9/ember-cms`)
+       const response : any = await fetch(`https://ember-cms.vercel.app/api/collection/0e3cee28-04f4-4842-a7ec-2b71d09947a9/ember-cms`)
        
        const page =await response.json()
        

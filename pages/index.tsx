@@ -16,7 +16,7 @@ import { IntroTextStyle, ProjectList, HighlightedText } from '../styles/home/hom
 
 export async function getStaticProps( ) {
 
-    const response : any = await fetch(`http://localhost:8080/api/collection/0e3cee28-04f4-4842-a7ec-2b71d09947a9/home`)
+    const response : any = await fetch(`https://ember-cms.vercel.app/api/collection/0e3cee28-04f4-4842-a7ec-2b71d09947a9/home`)
     
     const page =await response.json()
     
