@@ -80,53 +80,6 @@ const PageContent = content.reduce((mapAccumulator, obj) => {
     return mapAccumulator;
   }, new Map());
 
-const parseRichText = (data:any) => {
-
-if (!data || !data.length) {
-    return null;
-  }
-    data.map((node:any, index:number) => {
-    switch (node.type) {
-        case 'paragraph':
-            return <p>{node.children[index].text}</p>
-            ;
-        case 'quote':
-            return <blockquote>{node.content}</blockquote>
-          
-        case 'bulleted-list':
-            return <ul>{node.content}</ul>
-          
-        case 'code':
-            return <code>{node.content}</code>
-          
-        case 'heading-one':
-            return <h1>{node.content}</h1>
-       
-        case 'heading-two':
-            return <h2>{node.content}</h2>
-            
-        case 'heading-three':
-            return <h3>{node.content}</h3>
-     
-        case 'heading-four':
-            return <h4>{node.content}</h4>
-            
-        case 'heading-five':
-            return <h5>{node.content}</h5>
-       
-        case 'heading-six':
-            return <h6>{node.content}</h6>
-        
-        case 'image':
-            return <img src={node.content} alt={node.alt} />
-  
-        default:
-            break;
-    }
-    return node
-    }
-        )
-}
 
 console.log(PageContent)
 console.log(PageContent.entries())
@@ -149,7 +102,7 @@ console.log(page)
      <Heading>{overviewHeading}</Heading>
     <Descriptor {...colorProps}  >{overviewDescriptor}</Descriptor>
    <ParagraphLeft>{overviewContent}</ParagraphLeft>
-<img style={{gridColumnStart:"1", gridColumnEnd:"13", width:"85%", margin:"0 auto"}} src={content[5].data} />
+<img style={{gridColumnStart:"1", gridColumnEnd:"13", width:"65%", margin:"0 auto"}} src={content[5].data} />
 
 <Heading>tech stack & explanation</Heading>
 <Descriptor {...colorProps} >React & Redux front end,<br></br> Shopify Storefront API in the backend.</Descriptor>
