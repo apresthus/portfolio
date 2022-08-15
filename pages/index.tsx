@@ -155,7 +155,7 @@ const {jobtitle, myName, about} = PageContent;
 }    
     <ProjectSection.Intro>{yssAboutText}</ProjectSection.Intro>
     <ProjectSection.Stack>{yssStack}</ProjectSection.Stack>
-    <div className={styles.imageContainer}> <Image  alt="" width="1342" height="254" src="/ysstesting.png"/></div>
+    <div className={styles.imageContainer}> <Image  alt="" width="1308" height="788" src="/yss.png"/></div>
     <ProjectSection.Button onClick={() => router.push("/projects/your-special-sound")} className="project-button">{"View Project" }</ProjectSection.Button>
   
 
