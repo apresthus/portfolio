@@ -28,7 +28,7 @@
     "pages/index.js",
     "pages/components/project-header/ProjectHeader.js",
     "pages/components/contact-form/ContactForm.js"
-  ],
+, "components/navbar/index.js"  ],
   "exclude": [
     "node_modules"
   ]
