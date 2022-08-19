@@ -1,7 +1,11 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 import { NavbarContainer, NavbarList, LogoContainer} from './styles/navbar'
-export default function Navbar({children, ...restProps}) {
+
+interface Props {
+  children: React.ReactNode
+}
+export default function Navbar({children, ...restProps}:Props ) : React.ReactElement<Props> {
   const router = useRouter();
   const logoSVG = <svg width="100" height="auto" viewBox="0 0 171 73" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M50.5 56.1274H17.5L11.4211 72H1L28.3553 1.03413H39.7533L67 72H56.5789L50.5 56.1274ZM47.6776 48.5495L34 12.5034L20.3224 48.5495H47.6776Z" fill="black"/>
@@ -21,6 +25,9 @@ export default function Navbar({children, ...restProps}) {
   
   
   return (
-    <NavbarContainer {...restProps}><LogoContainer onClick={() => router.push('/')}>{logoSVG}</LogoContainer><NavbarList role={"list"}>{children}</NavbarList></NavbarContainer>
+    <NavbarContainer {...restProps}>
+      <LogoContainer onClick={() => router.push('/')}>{logoSVG}</LogoContainer>
+      <NavbarList role={"list"}>{children}</NavbarList>
+      </NavbarContainer>
   )
 }
