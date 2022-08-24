@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import {Heading, ProjectTitle, ProjectSubtitle, DesignImage, HeaderContainer, Summary, LeftStandin,PaletteContainer, Descriptor, ParagraphLeft,CenterParagraph, ParagraphRight, ColorPalette, Color, GradientText, NumberedList, ListItem, H3, UnorderedList} from '../../styles/projects/project-detail'
 import { v4 as uuidv4 } from 'uuid';
+import Head from 'next/head'
 interface ProjectProps {
     page:EmberCMSPage,
     pageTemplate:EmberCMSPage,
@@ -85,6 +86,9 @@ const overviewContent = PageContent.overview_content;
 console.log(page)
     return(
         <React.Fragment>
+          <Head><title>Ember CMS</title>
+          <meta name="description" content="My custom CMS that I made from scratch">  </meta>   
+          </Head>
             <Grid>
             <HeaderContainer>
                 <ProjectTitle>{title}</ProjectTitle>
