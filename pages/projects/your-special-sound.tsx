@@ -91,7 +91,7 @@ console.log(page)
     return(
         <React.Fragment>
           <Head><title>Your Special Sound</title>
-          <meta name="description" content="My custom storefront and design tools to create art from sound.">  </meta>   
+          <meta name="description" content="My custom storefront and design tools to create art from sound." />  
           </Head>
             <Grid>
             <HeaderContainer>

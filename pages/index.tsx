@@ -69,7 +69,7 @@ const {jobtitle, myName, about} = PageContent;
  
       <main className={styles.mainContainer}>
          <Head><title>Alexander Presthus - front end developer</title>
-          <meta name="description" content="The potfolio of Alexander Presthus a front end dev based in Italy.">  </meta>   
+          <meta name="description" content="The potfolio of Alexander Presthus a front end dev based in Italy." />  
           </Head>
       <section>
         <div className={styles.hello__container}>

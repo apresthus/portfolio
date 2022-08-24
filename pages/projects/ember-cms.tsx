@@ -87,7 +87,7 @@ console.log(page)
     return(
         <React.Fragment>
           <Head><title>Ember CMS</title>
-          <meta name="description" content="My custom CMS that I made from scratch">  </meta>   
+          <meta name="description" content="My custom CMS that I made from scratch" />
           </Head>
             <Grid>
             <HeaderContainer>
