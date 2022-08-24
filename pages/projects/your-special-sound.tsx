@@ -8,6 +8,7 @@ import {Heading, ProjectTitle, ProjectSubtitle, DesignImage, HeaderContainer, Su
 import { motion } from 'framer-motion'
 import { EmberParse } from '../../lib/ember-react'
 import { v4 as uuidv4 } from 'uuid';
+import Head from 'next/head'
 interface ProjectProps {
     page:EmberCMSPage,
     pageTemplate:EmberCMSPage,
@@ -89,6 +90,9 @@ const {frictionHeading, frictionDescriptor,frictionSignupText, frictionSecurityT
 console.log(page)
     return(
         <React.Fragment>
+          <Head><title>Your Special Sound</title>
+          <meta name="description" content="My custom storefront and design tools to create art from sound.">  </meta>   
+          </Head>
             <Grid>
             <HeaderContainer>
                 <ProjectTitle >{title}</ProjectTitle>

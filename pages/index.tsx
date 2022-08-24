@@ -9,6 +9,7 @@ import {Button} from '../components/button/Button'
 import { ProjectSection } from '../components/project-section'
 import Image from 'next/image'
 import { IntroTextStyle, ProjectList, HighlightedText } from '../styles/home/home'
+import Head from 'next/head'
 
 
 
@@ -67,6 +68,9 @@ const {jobtitle, myName, about} = PageContent;
   return (
  
       <main className={styles.mainContainer}>
+         <Head><title>Alexander Presthus - front end developer</title>
+          <meta name="description" content="The potfolio of Alexander Presthus a front end dev based in Italy.">  </meta>   
+          </Head>
       <section>
         <div className={styles.hello__container}>
           <p className={styles.hello__jobtitle}>{jobtitle}</p>
