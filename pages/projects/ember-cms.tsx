@@ -3,30 +3,23 @@ import {ProjectBreadcrumb} from '../../components/project-breadcrumb'
 import {EmberCMSPage} from '../../types'
 import Image from 'next/image'
 import React from 'react'
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
-import {Heading, ProjectTitle, ProjectSubtitle, DesignImage, HeaderContainer, Summary, LeftStandin,PaletteContainer, Descriptor, ParagraphLeft,CenterParagraph, ParagraphRight, ColorPalette, Color} from '../../styles/projects/project-detail'
-
+import {Heading, ProjectTitle, ProjectSubtitle, DesignImage, HeaderContainer, Summary, LeftStandin,PaletteContainer, Descriptor, ParagraphLeft,CenterParagraph, ParagraphRight, ColorPalette, Color, GradientText, NumberedList, ListItem, H3, UnorderedList} from '../../styles/projects/project-detail'
+import { v4 as uuidv4 } from 'uuid';
 interface ProjectProps {
     page:EmberCMSPage,
     pageTemplate:EmberCMSPage,
      notFound:Boolean
    }
-interface ColumnProps {
-    children?: React.ReactNode,
-    className?: string,
-    start: number,
-    end: number,
-}
-
 
 const Grid = styled.div`
 display: grid;
 grid-template-columns: repeat(12, 1fr);
-column-gap: 1.25rem;
-row-gap: 1.25rem;
-grid-auto-rows : minmax(min-content, max-content);  
+grid-auto-rows: minmax(min-content, max-content);
+column-gap: 2rem;
+row-gap: 1rem;
 justify-items:start;
-grid-auto-flow: row;
 margin-bottom: 1.25rem;
 `;
 
@@ -79,7 +72,7 @@ const PageContent = content.reduce((mapAccumulator, obj) => {
      mapAccumulator[obj.fieldName] = obj.data;
     return mapAccumulator;
   }, new Map());
-
+const {stack_heading, stack_descriptor, stack_content, ember_test, media_heading, media_descriptor, media_text} = PageContent;
 
 console.log(PageContent)
 console.log(PageContent.entries())
@@ -87,7 +80,7 @@ const title = PageContent.title;
 const subtitle =PageContent.subtitle;
 const overviewHeading = PageContent.overview_heading;
 const overviewDescriptor = PageContent.overview_descriptor;
-const overviewContent = content[4].data[0].children[0].text;
+const overviewContent = PageContent.overview_content;
 
 console.log(page)
     return(
@@ -97,32 +90,113 @@ console.log(page)
                 <ProjectTitle>{title}</ProjectTitle>
                 <ProjectSubtitle {...colorProps}>{subtitle}</ProjectSubtitle> 
             </HeaderContainer>
-            <Summary><strong>type:</strong><p>Personal project</p><strong>stack:</strong><p>Next.js, Firebase, GraphQL (Apollo server), Typescript</p><strong>what i did:</strong><p>Everything</p><strong>site/demo:</strong><a href={"https://create.yourspecialsound.com"} className="inlineLink">View site</a></Summary>
+            <Summary><strong>type:</strong><p>Personal project</p><strong>stack:</strong><p>Next.js, Firebase, GraphQL (Apollo server), Typescript</p><strong>what i did:</strong><p>Everything</p></Summary>
      
+            <div  style={{gridColumnStart:"1", gridColumnEnd:"13", width:"75%", height:"auto", margin:"0 auto"}}>
+<Image src={ember_test} alt="Your special Sound" width="2051px" height="1133px"  />
+</div>
+
      <Heading>{overviewHeading}</Heading>
-    <Descriptor {...colorProps}  >{overviewDescriptor}</Descriptor>
-   <ParagraphLeft>{overviewContent}</ParagraphLeft>
-<img style={{gridColumnStart:"1", gridColumnEnd:"13", width:"65%", margin:"0 auto"}} src={content[5].data} />
+     <Descriptor {...colorProps}>
+       {
 
-<Heading>tech stack & explanation</Heading>
-<Descriptor {...colorProps} >React & Redux front end,<br></br> Shopify Storefront API in the backend.</Descriptor>
-   <LeftStandin >Stack Illustration</LeftStandin>   
-   <ParagraphRight>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan feugiat nunc eu commodo. Morbi dolor massa, euismod non nibh et, bibendum consectetur tellus. Donec sit amet dui et massa commodo scelerisque. Etiam condimentum vehicula vehicula. Praesent sit amet nisl est. Nullam quis vestibulum nibh. Donec vitae nulla fermentum, blandit turpis a, vulputate nulla. Duis egestas luctus accumsan. Praesent feugiat malesuada mauris, eget vehicula massa pellentesque at. Etiam at laoreet lacus. Donec turpis libero, ultrices ut pellentesque eu, feugiat eget dui. Mauris et condimentum sapien. Curabitur viverra sagittis tristique. Donec nulla arcu, malesuada sit amet rhoncus et, euismod vitae elit.</ParagraphRight>
+      overviewDescriptor.map((sentence:any) => {
+  return <span className='block' key={uuidv4()}>
+          {sentence.children.map((word:any) =>{
+          if (word.underline) return <GradientText  {...colorProps} key={uuidv4()}>{word.text}</GradientText>
+          else return word.text
+          }
+  )}
+  </span>
+})}
+
+ </Descriptor>
+
+   {
+   
+         overviewContent.map((node:any, idx:number) => {
+          if (node.type === "bulleted-list") {console.log("el is list"); return <UnorderedList key={idx}>{node.children.map((item:any, index:number) => {return <ListItem key={index}>{item.children[0].text}</ListItem>})}</UnorderedList>}
+          if (node.type === "numbered-list") {console.log("el is list"); return <NumberedList key={idx}> {node.children.map((item:any, index:number) => {return <ListItem key={index}>{item.children[0].text}</ListItem>})}</NumberedList>}
+
+         return (<ParagraphLeft  as={motion.p} initial={{opacity:0}}  transition={{duration:2, type:"spring"}}   whileInView={{ opacity: 1 }}   viewport={{ once: false }} key={idx}> 
+         {node.children.map((el:any, index:number) =>{
+          if (el.url) return <a key={el.url} href={el.url} target="_blank" rel="noreferrer" >{el.children[0].text}</a>
+
+          return <span key={index}>{el.text}</span>
+         })}</ParagraphLeft>)
+
+         })
   
-   <Heading>challenges</Heading>
-   <Descriptor {...colorProps} >Responsive, yet powerful & easy to use.</Descriptor>  
-   <ParagraphLeft>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan feugiat nunc eu commodo. Etiam condimentum vehicula vehicula. Praesent sit amet nisl est. Nullam quis vestibulum nibh. Donec vitae nulla fermentum, blandit turpis a, vulputate nulla. Duis egestas luctus accumsan. Praesent feugiat malesuada mauris, eget vehicula massa pellentesque at. Etiam at laoreet lacus. Donec turpis libero, ultrices ut pellentesque eu, feugiat eget dui. Mauris et condimentum sapien.</ParagraphLeft>
-   <img style={{margin:"0 auto", width:"75%", gridColumnStart:"2", gridColumnEnd:"12"}} src={"/iphone-mockup.png"} />
-   <ParagraphLeft>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan feugiat nunc eu commodo. Morbi dolor massa, euismod non nibh et, bibendum consectetur tellus. Donec sit amet dui et massa commodo scelerisque. Etiam condimentum vehicula vehicula. Praesent sit amet nisl est. Nullam quis vestibulum nibh. Donec vitae nulla fermentum, blandit turpis a, vulputate nulla. Duis egestas luctus accumsan. Praesent feugiat malesuada mauris, eget vehicula massa pellentesque at. Etiam at laoreet lacus. Donec turpis libero, ultrices ut pellentesque eu, feugiat eget dui. Mauris et condimentum sapien. Curabitur viverra sagittis tristique. Donec nulla arcu, malesuada sit amet rhoncus et, euismod vitae elit.</ParagraphLeft>
 
-   <Heading>colors & design</Heading>
-   <Descriptor {...colorProps} >Function over form, without looking ugly.</Descriptor>  
-   <ParagraphLeft>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan feugiat nunc eu commodo. Morbi dolor massa, euismod non nibh et, bibendum consectetur tellus. Donec sit amet dui et massa commodo scelerisque. Etiam condimentum vehicula vehicula. Praesent sit amet nisl est.</ParagraphLeft>
-    <DesignImage src={"/yss2.png"} />
-    <DesignImage src={"/yss.png"} />
-    <DesignImage src={"/yss-canvas.png"} />
-    <DesignImage src={"/yss-cart.png"} />
-    
+       
+  }
+
+<Heading>{stack_heading}</Heading>
+<Descriptor {...colorProps}>       {
+
+stack_descriptor.map((sentence:any) => {
+return <span className='block' key={uuidv4()}>
+    {sentence.children.map((word:any) =>{
+    if (word.underline) return <GradientText  {...colorProps} key={uuidv4()}>{word.text}</GradientText>
+    else return word.text
+    }
+)}
+</span>
+})}
+</Descriptor>
+{
+   
+   stack_content.map((node:any, idx:number) => {
+   return (<ParagraphLeft  as={motion.p} initial={{opacity:0}}  transition={{duration:2, type:"spring"}}   whileInView={{ opacity: 1 }}   viewport={{ once: false }} key={idx}> 
+   {node.children.map((el:any, index:number) =>{
+    console.log(el)
+    if (el.url) return <a key={el.url} href={el.url} target="_blank" rel="noreferrer" >{el.children[0].text}</a>
+    if (el.type === "image") {console.log("el is image: ", el.url); return <img key={index} src={el.url} alt="" />}
+    if (el.type === "bulleted-list") {console.log("el is list"); return <p key={index}>Im a list</p>}
+    return <span key={index}>{el.text}</span>
+   })}</ParagraphLeft>)
+
+   })
+
+
+ 
+}
+
+<Heading>{media_heading}</Heading>
+<Descriptor {...colorProps}>       {
+
+media_descriptor.map((sentence:any) => {
+return <span className='block' key={uuidv4()}>
+    {sentence.children.map((word:any) =>{
+    if (word.underline) return <GradientText  {...colorProps} key={uuidv4()}>{word.text}</GradientText>
+    else return word.text
+    }
+)}
+</span>
+})}
+</Descriptor>
+{
+   
+   media_text.map((node:any, idx:number) => {
+
+    if (node.type === "bulleted-list") {console.log("el is list"); return <p key={idx}>Im a list</p>}
+    if (node.type === "heading-three")  {return <H3 key={idx}>{node.children[0].text}</H3>}
+    if (node.type === "image")  {console.log("el is image: ", node.url); return        <div key={node.url}  style={{gridColumnStart:"3", gridColumnEnd:"13", width:"45%", height:"auto", paddingTop:"1em", paddingBottom:"1em"}}>
+    <Image src={node.url} alt="Your special Sound" width="2051px" height="1133px"  />
+    </div>}
+
+   return (<ParagraphLeft  as={motion.p} initial={{opacity:0}}  transition={{duration:2, type:"spring"}}   whileInView={{ opacity: 1 }}   viewport={{ once: false }} key={idx}> 
+   {node.children.map((el:any, index:number) =>{
+    if (el.url) return <a key={el.url} href={el.url} target="_blank" rel="noreferrer" >{el.children[0].text}</a>
+    return <span key={index}>{el.text}</span>
+   })}</ParagraphLeft>)
+
+   })
+
+
+ 
+}
+  
             </Grid>
        
         

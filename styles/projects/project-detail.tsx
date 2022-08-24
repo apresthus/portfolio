@@ -85,6 +85,23 @@ export const Heading = styled.h2`
 
 `;
 
+export const H3 = styled.h3`
+    color: black;
+    font-size: 1.4rem;
+    font-weight: bold;
+    grid-column-start: 3;
+    grid-column-end: 7; 
+    margin-bottom: -1em;
+    padding-top: 1em;
+
+    @media screen and (max-width: 768px) { 
+    flex-direction: column;
+    grid-column-start: 2;
+    grid-column-end: 13; 
+}
+
+`;
+
 
 
 
@@ -199,6 +216,33 @@ export const ParagraphLeft = styled.p`
     grid-column-start: 2;
 }
     `
+
+    export const NumberedList = styled.ol`
+        grid-column-start: 3;
+    font-size: large;
+    grid-column-end: 12;
+    padding: 0;
+    width: 100%;
+    @media screen and (max-width: 768px) { 
+    flex-direction: column;
+    grid-column-start: 2;
+    }
+    `;
+
+    export const ListItem = styled.li`
+    `;
+
+    export const UnorderedList = styled.ul`
+            grid-column-start: 3;
+    font-size: large;
+    grid-column-end: 12;
+    padding: 0;
+    width: 100%;
+    @media screen and (max-width: 768px) { 
+    flex-direction: column;
+    grid-column-start: 2;
+    }
+    `;
 
 export const ParagraphRight = styled.span`
     grid-column: 7/12;
